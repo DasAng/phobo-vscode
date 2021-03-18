@@ -30,7 +30,9 @@ export default class ErrorProvideHover {
                             const markdown = new vscode.MarkdownString();
                             markdown.appendMarkdown(`**Error**:\n\n`)
                             markdown.appendMarkdown(`${err.message}\n\n`);
-                            markdown.appendMarkdown(`*${err.source}*`);
+                            markdown.appendMarkdown(`*${err.source}*\n\n`);
+                            markdown.appendMarkdown(`**Translated text**:\n\n`);
+                            markdown.appendMarkdown(`*${err.translated}*`);
                             return markdown;
                         })
                         return new vscode.Hover(items);

@@ -16,11 +16,35 @@
 	"contributes": {
 		"commands": [
 			{
-				"command": "phobo-vscode.helloWorld",
-				"title": "Hello World"
+				"command": "phobo-vscode.viewTranslator",
+				"title": "View translated feature",
+				"icon": {
+					"dark": "./images/phobo.png",
+					"light": "./images/phobo.png"
+				}
 			}
-		]
+		],
+		"menus": {
+			"editor/title": [
+				{
+					"when": "resourceExtname == .feature",
+					"command": "phobo-vscode.viewTranslator",
+					"group": "navigation"
+				}
+			]
+		}
 	},
+	"languages": [
+		{
+			"id": "feature",
+			"extensions": [
+				".feature"
+			],
+			"aliases": [
+				"feature"
+			]
+		}
+	],
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
 		"compile_window": "tsc -p ./ && xcopy images out\\images\\ /Y",
@@ -43,6 +67,6 @@
 		"vscode-test": "^1.5.0"
 	},
 	"dependencies": {
-		"bunbo": "^1.1.1"
+		"bunbo": "^1.1.7"
 	}
 }

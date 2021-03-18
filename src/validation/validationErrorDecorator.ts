@@ -25,9 +25,13 @@ export default class ValidationErrorDecorator {
         const ranges = result.errorMessages.map((err: ErrorMessage) => {
             if (err.line && err.column) {
                 if (err.line-1 > 0) {
-                    const line = editor.document.lineAt(err.line-1)
-                    const endPos = line.range.end.character
-                    return new vscode.Range(err.line-1,err.column-1,err.line-1,endPos);
+                    try {
+                        const line = editor.document.lineAt(err.line-1)
+                        const endPos = line.range.end.character
+                        return new vscode.Range(err.line-1,err.column-1,err.line-1,endPos);
+                    } catch (error) {
+                        console.log(error);
+                    }
                 }
             }
             return null;

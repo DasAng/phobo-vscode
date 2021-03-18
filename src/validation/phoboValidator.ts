@@ -4,6 +4,10 @@ import ValidationErrorDecorator from './validationErrorDecorator';
 import { ValidatorResult } from 'bunbo/validator/validatorResult';
 import ErrorProvideHover from './errorProvideHover';
 import AwsCompletionProvider from './awsCompletionProvider';
+import TranslatorView from '../translator/translatorView';
+import { Command } from '../commands/commands';
+import ViewTranslatorCommand from '../commands/viewTranslatorCommand';
+import { Scheme } from '../scheme/scheme';
 
 export default class PhoboValidator {
 
@@ -12,15 +16,23 @@ export default class PhoboValidator {
     private validatorResult?: ValidatorResult;
     private errorProvideHover: ErrorProvideHover;
     private awsCompletionProvider: AwsCompletionProvider;
+    private translatorView: TranslatorView;
+    private viewTranslatorCommand: ViewTranslatorCommand;
 
     constructor(context: vscode.ExtensionContext) {
+
+        this.viewTranslatorCommand = new ViewTranslatorCommand();
+
         context.subscriptions.push(vscode.window.onDidChangeActiveTextEditor(this.onDidChangeActiveTextEditor.bind(this)));
         context.subscriptions.push(vscode.workspace.onDidChangeTextDocument(this.onDidChangeTextDocument.bind(this)));
+
+        context.subscriptions.push(vscode.commands.registerCommand(Command.ViewTranslator,this.viewTranslatorCommand.run.bind(this.viewTranslatorCommand)))
 
         this.validator = new Validator();
         this.errorDecorator = new ValidationErrorDecorator();
         this.errorProvideHover = new ErrorProvideHover(context, this.validatorResult);
         this.awsCompletionProvider = new AwsCompletionProvider(context);
+        this.translatorView = new TranslatorView(context);
 
 
         if (vscode.window.activeTextEditor) {
@@ -32,7 +44,7 @@ export default class PhoboValidator {
 
     private async parseFeature(e: vscode.TextEditor) {
 
-        if (e.document.fileName.endsWith('.feature')) {
+        if (e.document.fileName.endsWith('.feature') && e.document.uri.scheme !== Scheme.Phobo) {
             this.clearValidation(e);
             this.validatorResult = await this.validator.validate(e.document.fileName);
             if (this.validatorResult.errorMessages) {
@@ -50,7 +62,16 @@ export default class PhoboValidator {
 
     private async onDidChangeTextDocument(e: vscode.TextDocumentChangeEvent) {
         if (vscode.window.activeTextEditor) {
-            await this.parseFeature(vscode.window.activeTextEditor);
+            if (!e.document.isDirty) {
+                if (e.document.fileName.endsWith('.feature') && e.document.uri.scheme !== Scheme.Phobo) {
+                    console.log(e.contentChanges);
+                    console.log("document changed:", e.document)
+                    await this.parseFeature(vscode.window.activeTextEditor);
+                    const newUri = e.document.uri.with({scheme: Scheme.Phobo, path: e.document.fileName});
+                    console.log('changed uri: ',newUri);
+                    this.translatorView.onDidChangeEmitter.fire(newUri);
+                }
+            }
         }
     }
 
