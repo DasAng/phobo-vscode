@@ -24,15 +24,16 @@ export default class ValidationErrorDecorator {
     public showErrors(editor: vscode.TextEditor, result: ValidatorResult) {
         const ranges = result.errorMessages.map((err: ErrorMessage) => {
             if (err.line && err.column) {
-                const line = editor.document.lineAt(err.line-1)
-                const endPos = line.range.end.character
-                return new vscode.Range(err.line-1,err.column-1,err.line-1,endPos);
+                if (err.line-1 > 0) {
+                    const line = editor.document.lineAt(err.line-1)
+                    const endPos = line.range.end.character
+                    return new vscode.Range(err.line-1,err.column-1,err.line-1,endPos);
+                }
             }
-            else {
-                return new vscode.Range(-1,-1,-1,-1);
-            }
-        })
-        editor.setDecorations(this.errorDecorator, ranges);
+            return null;
+        });
+        const filteredRanges: vscode.Range[] = ranges.filter(x => x !== null) as vscode.Range[];
+        editor.setDecorations(this.errorDecorator, filteredRanges);
     }
 
     public clearErrors(editor: vscode.TextEditor) {

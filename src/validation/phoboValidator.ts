@@ -3,6 +3,7 @@ import Validator from 'bunbo/validator/validator';
 import ValidationErrorDecorator from './validationErrorDecorator';
 import { ValidatorResult } from 'bunbo/validator/validatorResult';
 import ErrorProvideHover from './errorProvideHover';
+import AwsCompletionProvider from './awsCompletionProvider';
 
 export default class PhoboValidator {
 
@@ -10,6 +11,7 @@ export default class PhoboValidator {
     private errorDecorator: ValidationErrorDecorator;
     private validatorResult?: ValidatorResult;
     private errorProvideHover: ErrorProvideHover;
+    private awsCompletionProvider: AwsCompletionProvider;
 
     constructor(context: vscode.ExtensionContext) {
         context.subscriptions.push(vscode.window.onDidChangeActiveTextEditor(this.onDidChangeActiveTextEditor.bind(this)));
@@ -18,6 +20,7 @@ export default class PhoboValidator {
         this.validator = new Validator();
         this.errorDecorator = new ValidationErrorDecorator();
         this.errorProvideHover = new ErrorProvideHover(context, this.validatorResult);
+        this.awsCompletionProvider = new AwsCompletionProvider(context);
 
 
         if (vscode.window.activeTextEditor) {
