@@ -20,7 +20,7 @@
 				"title": "View translated feature",
 				"icon": {
 					"dark": "./images/phobo.png",
-					"light": "./images/phobo.png"
+					"light": "./images/phobo_dark.png"
 				}
 			}
 		],
@@ -32,19 +32,17 @@
 					"group": "navigation"
 				}
 			]
+		},
+		"configuration": {
+			"title": "Phobo",
+			"properties": {
+				"phobo.executablePath": {
+					"type":"string",
+					"description": "Specify full path of the Phobo executable"
+				}
+			}
 		}
 	},
-	"languages": [
-		{
-			"id": "feature",
-			"extensions": [
-				".feature"
-			],
-			"aliases": [
-				"feature"
-			]
-		}
-	],
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
 		"compile_window": "tsc -p ./ && xcopy images out\\images\\ /Y",
