@@ -1,15 +1,15 @@
 import * as vscode from 'vscode';
 import Validator from 'bunbo/validator/validator';
-import ValidationErrorDecorator from './validationErrorDecorator';
+import ValidationErrorDecorator from '../decorators/validationErrorDecorator';
 import { ValidatorResult } from 'bunbo/validator/validatorResult';
-import ErrorProvideHover from './errorProvideHover';
-import AwsCompletionProvider from './awsCompletionProvider';
+import ErrorProvideHover from '../hovers/errorProvideHover';
+import AwsCompletionProvider from '../completions/awsCompletionProvider';
 import TranslatorView from '../translator/translatorView';
 import { Command } from '../commands/commands';
 import ViewTranslatorCommand from '../commands/viewTranslatorCommand';
 import { Scheme } from '../scheme/scheme';
-import ActionProvideHover from './actionProvideHover';
-import StepsDecorator from './stepsDecorator';
+import ActionProvideHover from '../hovers/actionProvideHover';
+import StepsDecorator from '../decorators/stepsDecorator';
 
 export default class PhoboValidator {
 
