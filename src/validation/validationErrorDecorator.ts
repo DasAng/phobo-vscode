@@ -13,7 +13,8 @@ export default class ValidationErrorDecorator {
             gutterIconSize: '50%',
             overviewRulerLane: vscode.OverviewRulerLane.Full,
             overviewRulerColor: 'rgba(205,21,0,0.7)',
-            backgroundColor: 'rgba(201, 118, 118, 0.2)'
+            //backgroundColor: 'rgba(201, 118, 118, 0.2)',
+            textDecoration: 'underline wavy red'
         });
     }
 

@@ -47,38 +47,28 @@ export default class PhoboValidator {
                 this.onDidChangeActiveTextEditor(vscode.window.activeTextEditor);
             }
         }
+
     }
 
     private async parseFeature(e: vscode.TextEditor) {
 
         if (e.document.fileName.endsWith('.feature') && e.document.uri.scheme !== Scheme.Phobo) {
             this.clearValidation(e);
-            this.validatorResult = await this.validator.validate(e.document.fileName);
-            if (this.validatorResult.errorMessages) {
-                this.errorDecorator.showErrors(e, this.validatorResult);
-                this.errorProvideHover.setResult(this.validatorResult);
+            if(vscode.workspace.getConfiguration('phobo').get('enableValidation')) {
+                this.validatorResult = await this.validator.validate(e.document.fileName);
+                if (this.validatorResult.errorMessages) {
+                    this.errorDecorator.showErrors(e, this.validatorResult);
+                    this.errorProvideHover.setResult(this.validatorResult);
+                }
+                this.actionProvideHover.setResult(this.validatorResult);
+                //this.stepsDecorator.showDecorators(e, this.validatorResult);
             }
-            this.actionProvideHover.setResult(this.validatorResult);
-            this.stepsDecorator.showDecorators(e, this.validatorResult);
         }
     }
 
     private async onDidChangeActiveTextEditor(e: vscode.TextEditor | undefined) {
         if (e) {
             await this.parseFeature(e);
-        }
-    }
-
-    private async onDidChangeTextDocument(e: vscode.TextDocumentChangeEvent) {
-        if (vscode.window.activeTextEditor) {
-            if (!e.document.isDirty) {
-                if (e.document.fileName.endsWith('.feature') && e.document.uri.scheme !== Scheme.Phobo) {
-                    //console.log(e.contentChanges);
-                    await this.parseFeature(vscode.window.activeTextEditor);
-                    const newUri = e.document.uri.with({scheme: Scheme.Phobo, path: e.document.fileName});
-                    this.translatorView.onDidChangeEmitter.fire(newUri);
-                }
-            }
         }
     }
 
@@ -96,7 +86,7 @@ export default class PhoboValidator {
     private clearValidation(e: vscode.TextEditor) {
         this.validatorResult = undefined;
         this.errorDecorator.clearErrors(e);
-        this.stepsDecorator.clearDecorators(e);
+        //this.stepsDecorator.clearDecorators(e);
     }
 
 }

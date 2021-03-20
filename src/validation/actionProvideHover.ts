@@ -32,7 +32,12 @@ export default class ActionProvideHover {
                             markdown.appendMarkdown(`${action.actionName}\n\n`);
                             return markdown;
                         })
-                        return new vscode.Hover(items);
+
+                        if(vscode.workspace.getConfiguration('phobo').get('enableValidation')) {
+                            return new vscode.Hover(items);
+                        }
+                        return null;
+                        
                     }
                 }
             });

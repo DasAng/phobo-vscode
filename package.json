@@ -39,6 +39,11 @@
 				"phobo.executablePath": {
 					"type": "string",
 					"description": "Specify full path of the Phobo executable"
+				},
+				"phobo.enableValidation": {
+					"type":"boolean",
+					"default":true,
+					"description": "Enable validation of feature files"
 				}
 			}
 		}
