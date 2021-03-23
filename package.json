@@ -2,10 +2,11 @@
 	"name": "phobo-vscode",
 	"displayName": "phobo-vscode",
 	"description": "Phobo vscode extension",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"engines": {
 		"vscode": "^1.54.0"
 	},
+	"publisher": "dasang",
 	"categories": [
 		"Other"
 	],
@@ -22,6 +23,11 @@
 					"dark": "./images/phobo.png",
 					"light": "./images/phobo_dark.png"
 				}
+			},
+			{
+				"command": "phobo-vscode.run",
+				"title": "Run Phobo",
+				"category": "phobo"
 			}
 		],
 		"menus": {

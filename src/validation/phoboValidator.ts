@@ -10,6 +10,7 @@ import ViewTranslatorCommand from '../commands/viewTranslatorCommand';
 import { Scheme } from '../scheme/scheme';
 import ActionProvideHover from '../hovers/actionProvideHover';
 import StepsDecorator from '../decorators/stepsDecorator';
+import RunPhoboCommand from '../commands/runPhoboCommand';
 
 export default class PhoboValidator {
 
@@ -22,16 +23,19 @@ export default class PhoboValidator {
     private awsCompletionProvider: AwsCompletionProvider;
     private translatorView: TranslatorView;
     private viewTranslatorCommand: ViewTranslatorCommand;
+    private runPhoboCommand: RunPhoboCommand;
 
     constructor(context: vscode.ExtensionContext) {
 
         this.viewTranslatorCommand = new ViewTranslatorCommand();
+        this.runPhoboCommand = new RunPhoboCommand();
 
         context.subscriptions.push(vscode.window.onDidChangeActiveTextEditor(this.onDidChangeActiveTextEditor.bind(this)));
         // context.subscriptions.push(vscode.workspace.onDidChangeTextDocument(this.onDidChangeTextDocument.bind(this)));
         context.subscriptions.push(vscode.workspace.onDidSaveTextDocument(this.onDidSaveTextDocument.bind(this)));
 
         context.subscriptions.push(vscode.commands.registerCommand(Command.ViewTranslator,this.viewTranslatorCommand.run.bind(this.viewTranslatorCommand)))
+        context.subscriptions.push(vscode.commands.registerCommand(Command.RunPhobo,this.runPhoboCommand.run.bind(this.runPhoboCommand)))
 
         this.validator = new Validator();
         this.errorDecorator = new ValidationErrorDecorator();
@@ -85,7 +89,9 @@ export default class PhoboValidator {
 
     private clearValidation(e: vscode.TextEditor) {
         this.validatorResult = undefined;
-        this.errorDecorator.clearErrors(e);
+        if (this.errorDecorator) {
+            this.errorDecorator.clearErrors(e);
+        }
         //this.stepsDecorator.clearDecorators(e);
     }
 
