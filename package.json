@@ -47,8 +47,8 @@
 					"description": "Specify full path of the Phobo executable"
 				},
 				"phobo.enableValidation": {
-					"type":"boolean",
-					"default":true,
+					"type": "boolean",
+					"default": true,
 					"description": "Enable validation of feature files"
 				}
 			}
@@ -56,7 +56,7 @@
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile_window",
-		"compile_window": "tsc -p ./ && xcopy images out\\images\\ /Y",
+		"compile_window": "tsc -p ./ && xcopy images out\\images\\ /Y && xcopy actiondocs out\\actiondocs\\ /Y",
 		"watch": "tsc -watch -p ./",
 		"pretest": "npm run compile && npm run lint",
 		"lint": "eslint src --ext ts",
@@ -76,6 +76,6 @@
 		"vscode-test": "^1.5.0"
 	},
 	"dependencies": {
-		"bunbo": "^1.1.8"
+		"bunbo": "^1.1.9"
 	}
 }

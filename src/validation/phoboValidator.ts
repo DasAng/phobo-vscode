@@ -3,7 +3,6 @@ import Validator from 'bunbo/validator/validator';
 import ValidationErrorDecorator from '../decorators/validationErrorDecorator';
 import { ValidatorResult } from 'bunbo/validator/validatorResult';
 import ErrorProvideHover from '../hovers/errorProvideHover';
-import AwsCompletionProvider from '../completions/awsCompletionProvider';
 import TranslatorView from '../translator/translatorView';
 import { Command } from '../commands/commands';
 import ViewTranslatorCommand from '../commands/viewTranslatorCommand';
@@ -11,6 +10,7 @@ import { Scheme } from '../scheme/scheme';
 import ActionProvideHover from '../hovers/actionProvideHover';
 import StepsDecorator from '../decorators/stepsDecorator';
 import RunPhoboCommand from '../commands/runPhoboCommand';
+import AwsCompletionProvider from '../completions/awsCompletionProvider';
 
 export default class PhoboValidator {
 

@@ -1,6 +1,7 @@
 import { ActionResult } from 'bunbo/validator/actions/action';
 import { ValidatorResult } from 'bunbo/validator/validatorResult';
 import * as vscode from 'vscode';
+import { actionDocMapper } from '../docstrings/actionDocInfo';
 
 export default class ActionProvideHover {
 
@@ -28,8 +29,13 @@ export default class ActionProvideHover {
                         })
                         .map((action: ActionResult) => {
                             const markdown = new vscode.MarkdownString('',true);
-                            markdown.appendMarkdown(`$(globe) **Action**:\n\n`)
-                            markdown.appendMarkdown(`${action.actionName}\n\n`);
+                            markdown.isTrusted = true;
+                            markdown.appendMarkdown(`\`\`\`diff\n+ ${action.actionName}\n\`\`\`\n`);
+                            markdown.appendMarkdown(`---\n`);
+                            if (actionDocMapper.hasOwnProperty(action.actionDescriptionId)) {
+                                markdown.appendMarkdown(`${actionDocMapper[action.actionDescriptionId]}`);
+                            }
+                            
                             return markdown;
                         })
 
