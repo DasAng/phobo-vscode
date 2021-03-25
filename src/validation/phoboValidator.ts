@@ -10,7 +10,7 @@ import { Scheme } from '../scheme/scheme';
 import ActionProvideHover from '../hovers/actionProvideHover';
 import StepsDecorator from '../decorators/stepsDecorator';
 import RunPhoboCommand from '../commands/runPhoboCommand';
-import AwsCompletionProvider from '../completions/awsCompletionProvider';
+import ActionCompletionProvider from '../completions/actionCompletionProvider';
 
 export default class PhoboValidator {
 
@@ -20,7 +20,7 @@ export default class PhoboValidator {
     private validatorResult?: ValidatorResult;
     private errorProvideHover: ErrorProvideHover;
     private actionProvideHover: ActionProvideHover;
-    private awsCompletionProvider: AwsCompletionProvider;
+    private actionCompletionProvider: ActionCompletionProvider;
     private translatorView: TranslatorView;
     private viewTranslatorCommand: ViewTranslatorCommand;
     private runPhoboCommand: RunPhoboCommand;
@@ -42,7 +42,7 @@ export default class PhoboValidator {
         this.stepsDecorator = new StepsDecorator();
         this.errorProvideHover = new ErrorProvideHover(context, this.validatorResult);
         this.actionProvideHover = new ActionProvideHover(context, this.validatorResult);
-        this.awsCompletionProvider = new AwsCompletionProvider(context);
+        this.actionCompletionProvider = new ActionCompletionProvider(context);
         this.translatorView = new TranslatorView(context);
 
 
