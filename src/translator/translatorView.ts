@@ -16,7 +16,6 @@ export default class TranslatorView implements TextDocumentContentProvider {
     }
 
     async provideTextDocumentContent(uri: vscode.Uri, token: vscode.CancellationToken): Promise<string | null | undefined> {
-        console.log(uri);
         const translator = new Translator
         try {
             const resultData = await translator.translate(path.resolve(uri.fsPath));
