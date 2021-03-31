@@ -35,7 +35,10 @@ export default class ErrorProvideHover {
                             markdown.appendMarkdown(`*${err.translated}*`);
                             return markdown;
                         })
-                        return new vscode.Hover(items);
+                        if(vscode.workspace.getConfiguration('phobo').get('enableValidation')) {
+                            return new vscode.Hover(items);
+                        }
+                        return null;
                     }
                 }
             });

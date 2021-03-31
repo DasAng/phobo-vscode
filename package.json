@@ -2,17 +2,20 @@
 	"name": "phobo-vscode",
 	"displayName": "phobo-vscode",
 	"description": "Phobo vscode extension",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"engines": {
 		"vscode": "^1.54.0"
 	},
+	"publisher": "dasang",
 	"categories": [
 		"Other"
 	],
 	"activationEvents": [
 		"*"
 	],
-	"main": "./out/extension.js",
+	"repository": "https://github.com/DasAng/phobo-vscode",
+	"icon": "logo.png",
+	"main": "./dist/extension.js",
 	"contributes": {
 		"commands": [
 			{
@@ -22,6 +25,11 @@
 					"dark": "./images/phobo.png",
 					"light": "./images/phobo_dark.png"
 				}
+			},
+			{
+				"command": "phobo-vscode.run",
+				"title": "Run Phobo",
+				"category": "phobo"
 			}
 		],
 		"menus": {
@@ -37,34 +45,45 @@
 			"title": "Phobo",
 			"properties": {
 				"phobo.executablePath": {
-					"type":"string",
+					"type": "string",
 					"description": "Specify full path of the Phobo executable"
+				},
+				"phobo.enableValidation": {
+					"type": "boolean",
+					"default": true,
+					"description": "Enable validation of feature files"
 				}
 			}
 		}
 	},
 	"scripts": {
-		"vscode:prepublish": "npm run compile",
-		"compile_window": "tsc -p ./ && xcopy images out\\images\\ /Y",
+		"vscode:prepublish": "npm run compile_window",
+		"compile_window": "webpack --mode production && xcopy images dist\\images\\ /Y && xcopy actiondocs dist\\actiondocs\\ /Y",
 		"watch": "tsc -watch -p ./",
 		"pretest": "npm run compile && npm run lint",
 		"lint": "eslint src --ext ts",
-		"test": "node ./out/test/runTest.js"
+		"test": "node ./out/test/runTest.js",
+		"webpack": "webpack --mode development",
+    	"webpack-dev": "webpack --mode development --watch",
+		"webpack-prod": "webpack --mode production"
 	},
 	"devDependencies": {
-		"@types/vscode": "^1.54.0",
 		"@types/glob": "^7.1.3",
 		"@types/mocha": "^8.0.4",
 		"@types/node": "^12.11.7",
-		"eslint": "^7.19.0",
+		"@types/vscode": "^1.54.0",
 		"@typescript-eslint/eslint-plugin": "^4.14.1",
 		"@typescript-eslint/parser": "^4.14.1",
+		"eslint": "^7.19.0",
 		"glob": "^7.1.6",
 		"mocha": "^8.2.1",
+		"ts-loader": "^8.1.0",
 		"typescript": "^4.1.3",
-		"vscode-test": "^1.5.0"
+		"vscode-test": "^1.5.0",
+		"webpack": "^5.28.0",
+		"webpack-cli": "^4.6.0"
 	},
 	"dependencies": {
-		"bunbo": "^1.1.7"
+		"bunbo": "^1.1.10"
 	}
 }

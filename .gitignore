@@ -5,6 +5,8 @@
 
 out
 
+*.vsix
+
 ### Node ###
 # Logs
 logs
