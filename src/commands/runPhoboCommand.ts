@@ -11,12 +11,17 @@ export default class RunPhoboCommand {
         this.terminalName = "phobo";
     }
 
-    public async run() {
+    public async run(breakpoints?: number[]) {
         if (vscode.window.activeTextEditor) {
             if (vscode.window.activeTextEditor.document.uri.scheme !== Scheme.Phobo) {
                 const execPath = vscode.workspace.getConfiguration('phobo').get('executablePath');
                 if (fs.existsSync(<string>execPath)) {
-                    let shellCommand = `${execPath} ${vscode.window.activeTextEditor.document.fileName} --d`;
+                    let breakArgs = "";
+                    if (breakpoints && breakpoints.length > 0) {
+                        breakArgs += "--attach-dbg ";
+			            breakpoints.forEach(x => { breakArgs += `--b ${x} `});
+                    }
+                    let shellCommand = `${execPath} ${vscode.window.activeTextEditor.document.fileName} --d ${breakArgs}`.trim();
                     let terminalFound = this.getTerminal(this.terminalName);
                     if (!terminalFound) {
                         terminalFound = vscode.window.createTerminal({name: this.terminalName, env: {}, cwd: path.dirname(<string>execPath)});
