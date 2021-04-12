@@ -21,6 +21,7 @@ The following settings can be configured:
 - `Run Phobo`: Enables you to run **Phobo** with the command *Run Phobo*. This requires you to have Phobo installed.
 - `View translated feature files`: Allows you to view feature files that have been translated by Phobo
 - `Syntax completion`: Enables completion suggestion when writing feature files.
+- `Debugging Phobo`: Enables running Phobo in debug mode to set breakpoints and step through feature files.
 
 # Syntax validation
 
@@ -59,5 +60,13 @@ Phobo has a feature that allows it to translate feature files that has the "#tem
 With this extension you are able to see how the translated feature file will look like if Phobo had translated it. To do that click on the small icon as shown below and a new window will appear to the side showing you the translated feature file:
 
 ![](docs/translate.gif)
+
+# Debugging Phobo
+
+This feature allows you to run a debugger server that will allow Phobo to connect to. You can then set breakpoints and step through the feature files that is run by Phobo.
+
+![](docs/debug.gif)
+
+
 
 
