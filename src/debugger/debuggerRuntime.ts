@@ -16,7 +16,8 @@ export enum DebuggerActionType {
     CONTINUE=1,
     STEP=2,
     STOP=3,
-    BREAKPOINT=4
+    BREAKPOINT=4,
+    BREAKPOINTCHANGED=5
 }
 
 interface IStackFrame {
@@ -55,7 +56,10 @@ export default class DebuggerRuntime extends EventEmitter {
         try {
             const json = JSON.parse(message);
             this.lastFrame = json;
-            this.sendEvent('stopOnBreak', this.lastFrame);
+            if (json.type === DebuggerActionType.BREAKPOINT) {
+                this.sendEvent('stopOnBreak', this.lastFrame);
+            }
+            
         } catch (error) {
             
         }
@@ -191,7 +195,7 @@ export default class DebuggerRuntime extends EventEmitter {
             for(let client of this.server.clients) {
                 client.send(JSON.stringify({
                     id:0,
-                    type: DebuggerActionType.BREAKPOINT,
+                    type: DebuggerActionType.BREAKPOINTCHANGED,
                     data: breakpoints
                 }));
             }
