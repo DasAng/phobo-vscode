@@ -7,3 +7,11 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## [Unreleased]
 
 - Initial release
+
+## [0.1.0] - 2021-04-12
+
+### Added
+
+- Debugging support for Phobo.
+- Set breakpoints in feature files.
+- Inspect variables during debugging of feature files
