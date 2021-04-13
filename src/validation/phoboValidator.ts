@@ -8,7 +8,6 @@ import { Command } from '../commands/commands';
 import ViewTranslatorCommand from '../commands/viewTranslatorCommand';
 import { Scheme } from '../scheme/scheme';
 import ActionProvideHover from '../hovers/actionProvideHover';
-import StepsDecorator from '../decorators/stepsDecorator';
 import RunPhoboCommand from '../commands/runPhoboCommand';
 import ActionCompletionProvider from '../completions/actionCompletionProvider';
 
@@ -16,7 +15,6 @@ export default class PhoboValidator {
 
     private validator: Validator;
     private errorDecorator: ValidationErrorDecorator;
-    private stepsDecorator: StepsDecorator;
     private validatorResult?: ValidatorResult;
     private errorProvideHover: ErrorProvideHover;
     private actionProvideHover: ActionProvideHover;
@@ -39,7 +37,6 @@ export default class PhoboValidator {
 
         this.validator = new Validator();
         this.errorDecorator = new ValidationErrorDecorator();
-        this.stepsDecorator = new StepsDecorator();
         this.errorProvideHover = new ErrorProvideHover(context, this.validatorResult);
         this.actionProvideHover = new ActionProvideHover(context, this.validatorResult);
         this.actionCompletionProvider = new ActionCompletionProvider(context);
@@ -65,7 +62,6 @@ export default class PhoboValidator {
                     this.errorProvideHover.setResult(this.validatorResult);
                 }
                 this.actionProvideHover.setResult(this.validatorResult);
-                //this.stepsDecorator.showDecorators(e, this.validatorResult);
             }
         }
     }
@@ -92,7 +88,6 @@ export default class PhoboValidator {
         if (this.errorDecorator) {
             this.errorDecorator.clearErrors(e);
         }
-        //this.stepsDecorator.clearDecorators(e);
     }
 
 }

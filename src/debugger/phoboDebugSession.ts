@@ -1,7 +1,4 @@
-/*---------------------------------------------------------
- * Copyright (C) Microsoft Corporation. All rights reserved.
- *--------------------------------------------------------*/
-
+import * as vscode from 'vscode';
 import {
 	Logger, logger,
 	LoggingDebugSession,
@@ -14,6 +11,7 @@ import { FileAccessor } from './debuggerRuntime';
 import { Subject } from 'await-notify';
 import DebuggerRuntime from './debuggerRuntime';
 import * as _ from 'lodash';
+import StepsDecorator from '../decorators/stepsDecorator';
 
 /**
  * This interface describes the mock-debug specific launch attributes
@@ -46,6 +44,10 @@ export class PhoboDebugSession extends LoggingDebugSession {
 	private debuggerRuntime: DebuggerRuntime;
 	private _breakpointId = 1;
 	private scopeLocal = 'local';
+	private _activeEditor?: vscode.TextEditor
+
+	private stepsDecorator: StepsDecorator;
+	private stepInfos: any[] = [];
 	
 	/**
 	 * Creates a new debug adapter that is used for one debug session.
@@ -53,6 +55,10 @@ export class PhoboDebugSession extends LoggingDebugSession {
 	 */
 	public constructor(fileAccessor: FileAccessor) {
 		super("phobo-debug.txt");
+
+		let self = this;
+
+		this.stepsDecorator = new StepsDecorator();
 
 		// this debugger uses one-based lines and columns
 		this.setDebuggerLinesStartAt1(true);
@@ -66,9 +72,29 @@ export class PhoboDebugSession extends LoggingDebugSession {
 			} else {
 				this.sendEvent(new StoppedEvent('step', PhoboDebugSession.threadID));
 			}
+			self.stepInfos.push(event);
+			if (self._activeEditor) {
+				self.stepsDecorator.showDecorators(self._activeEditor, self.stepInfos);
+			}
 		});
-		this.debuggerRuntime.on('end', () => {
+		this.debuggerRuntime.on('log', (event) =>  {
+			const debugConsole = vscode.debug.activeDebugConsole;
+			if (debugConsole) {
+				debugConsole.append(event);
+			}
+		});
+		this.debuggerRuntime.on('stepInfo', (event) =>  {
+			self.stepInfos.push(event);
+			if (self._activeEditor) {
+				self.stepsDecorator.showDecorators(self._activeEditor, self.stepInfos);
+			}
+		})
+		this.debuggerRuntime.on('end', (event) => {
 			this.sendEvent(new TerminatedEvent());
+			const debugConsole = vscode.debug.activeDebugConsole;
+			if (debugConsole) {
+				debugConsole.appendLine(`debugger exited with code: ${event}`);
+			}
 		});
 
 	}
@@ -149,6 +175,8 @@ export class PhoboDebugSession extends LoggingDebugSession {
 		await this._configurationDone.wait(1000);
 
 		this.debuggerRuntime.sourceFile = this._activeSourceFile;
+
+		this._activeEditor = vscode.window.activeTextEditor;
 
 		await this.debuggerRuntime.start(this._breakpoints);
 
@@ -263,6 +291,41 @@ export class PhoboDebugSession extends LoggingDebugSession {
 							name: 'scenario',
 							type: 'string',
 							value: lastFrame.data.scenario,
+							variablesReference: 0
+						});
+					}
+					if (lastFrame.data && lastFrame.data.message) {
+						variables.push({
+							name: 'message',
+							type: 'string',
+							value: lastFrame.data.message,
+							variablesReference: 0
+						});
+					}
+					if (lastFrame.data && lastFrame.data.status) {
+						let statusText = '';
+						if (lastFrame.data.status === 1) {
+							statusText = 'PASSED';
+						}
+						else if (lastFrame.data.status === 2) {
+							statusText = 'SKIPPED';
+						}
+						else if (lastFrame.data.status === 3) {
+							statusText = 'PENDING';
+						}
+						else if (lastFrame.data.status === 4) {
+							statusText = 'UNDEFINED';
+						}
+						else if (lastFrame.data.status === 5) {
+							statusText = 'AMBIGUOUS';
+						}
+						else if (lastFrame.data.status === 6) {
+							statusText = 'FAILED';
+						}
+						variables.push({
+							name: 'status',
+							type: 'string',
+							value: statusText,
 							variablesReference: 0
 						});
 					}
