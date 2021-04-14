@@ -16,3 +16,8 @@ Example of usage:
 - Set the value *hello world* into an input element
 
     > `page set value "hello world" //*input[@id='myinput']`
+
+
+References:
+
+[Page set value](https://github.com/DasAng/phobo-release/blob/master/docs/browser_actions.md#page-set-value)

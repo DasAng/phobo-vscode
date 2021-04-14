@@ -10,12 +10,12 @@ This action will initiates the authentication flow.
     - USER_PASSWORD_AUTH
     - ADMIN_USER_PASSWORD_AUTH
     
-    You can use an [Intrinsic expression](#intrinsic_expression.md) for this parameter.
-- **`clientid`**: the app client ID. You can use an [Intrinsic expression](#intrinsic_expression.md) for this parameter.
-- `authparameters`: the authentication parameters. These are inputs corresponding to the *authflow* that you are invoking. The required values depend on the value of *authflow*. You can use an [Intrinsic expression](#intrinsic_expression.md) for this parameter.
-- `clientmetadata`: a map of custom key-value pairs that you can provide as input for certain custom workflows that this action triggers. You can use an [Intrinsic expression](#intrinsic_expression.md) for this parameter.
-- `analyticsendpointid`: the Amazon Pinpoint analytics metadata for collecting metrics for InitiateAuth calls. You can use an [Intrinsic expression](#intrinsic_expression.md) for this parameter.
-- `encodeddata`: contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security. You can use an [Intrinsic expression](#intrinsic_expression.md) for this parameter.
+    You can use an [Intrinsic expression](https://github.com/DasAng/phobo-release/blob/master/docs/intrinsic_expression.md) for this parameter.
+- **`clientid`**: the app client ID. You can use an [Intrinsic expression](https://github.com/DasAng/phobo-release/blob/master/docs/intrinsic_expression.md) for this parameter.
+- `authparameters`: the authentication parameters. These are inputs corresponding to the *authflow* that you are invoking. The required values depend on the value of *authflow*. You can use an [Intrinsic expression](https://github.com/DasAng/phobo-release/blob/master/docs/intrinsic_expression.md) for this parameter.
+- `clientmetadata`: a map of custom key-value pairs that you can provide as input for certain custom workflows that this action triggers. You can use an [Intrinsic expression](https://github.com/DasAng/phobo-release/blob/master/docs/intrinsic_expression.md) for this parameter.
+- `analyticsendpointid`: the Amazon Pinpoint analytics metadata for collecting metrics for InitiateAuth calls. You can use an [Intrinsic expression](https://github.com/DasAng/phobo-release/blob/master/docs/intrinsic_expression.md) for this parameter.
+- `encodeddata`: contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security. You can use an [Intrinsic expression](https://github.com/DasAng/phobo-release/blob/master/docs/intrinsic_expression.md) for this parameter.
 
 The action returns a JSON result:
 
@@ -50,3 +50,4 @@ Example of usage:
 References:
 
 [InitiateAuth](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html)
+[Initiate auth](https://github.com/DasAng/phobo-release/blob/master/docs/aws_cognito_actions.md#initiate-auth)

@@ -9,3 +9,8 @@ Example of usage:
 - Delete all users when the scenario finished regardless or any steps that failed
 
     > `delete cognito users when finished`
+
+
+References:
+
+[Delete users when finished](https://github.com/DasAng/phobo-release/blob/master/docs/aws_cognito_actions.md#delete-users-when-finished)

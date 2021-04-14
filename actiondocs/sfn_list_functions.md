@@ -47,3 +47,4 @@ Example of usage:
 References:
 
 [ListStateMachines](https://docs.aws.amazon.com/step-functions/latest/apireference/API_ListStateMachines.html)
+[List step functions](https://github.com/DasAng/phobo-release/blob/master/docs/aws_stepfunctions_actions.md#list-step-functions)

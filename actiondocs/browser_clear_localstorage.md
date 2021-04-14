@@ -11,3 +11,7 @@ Example of usage:
 - Clear all localstorage for current page domain
 
     > `page clear localstorage`
+
+References:
+
+[Page clear localstorage](https://github.com/DasAng/phobo-release/blob/master/docs/browser_actions.md#page-clear-localstorage)

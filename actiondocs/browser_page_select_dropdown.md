@@ -38,3 +38,8 @@ Example of usage:
 - If select is a multi-select element then you can select multiple values using comma separated list:
 
     > `page select dropdown #select_language : 1,2`
+
+
+References:
+
+[Page select dropdown](https://github.com/DasAng/phobo-release/blob/master/docs/browser_actions.md#page-select-dropdown)

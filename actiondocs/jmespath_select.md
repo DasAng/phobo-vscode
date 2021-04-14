@@ -13,4 +13,9 @@ Example of usage:
 
 - Select *foo.bar* from the last saved result
 
-    > jmespath select foo.bar 
+    > jmespath select foo.bar
+
+
+References:
+
+[Select](https://github.com/DasAng/phobo-release/blob/master/docs/jmespath_actions.md#select)

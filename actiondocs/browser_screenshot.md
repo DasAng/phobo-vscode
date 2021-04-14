@@ -15,3 +15,8 @@ Example of usage:
 - Take a screenshot and store it as the file myscreenshot.png
 
    > `take screenshot myscreenshot.png`
+
+
+References:
+
+[Take screenshot](https://github.com/DasAng/phobo-release/blob/master/docs/browser_actions.md#take-screenshot)

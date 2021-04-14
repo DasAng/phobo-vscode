@@ -25,3 +25,7 @@ Example of usage:
     > """  
     > { "bar": "hello" }  
     > """
+
+References:
+
+[Match](https://github.com/DasAng/phobo-release/blob/master/docs/jmespath_actions.md#match)

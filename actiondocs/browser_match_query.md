@@ -45,3 +45,8 @@ Example of usage:
 - Expect none of the following text matches *bob,alice,jack*
 
     > `page queried items contains not text values: bob,alice,jack`
+
+
+References:
+
+[Page queried items contains not,any,all or exact](https://github.com/DasAng/phobo-release/blob/master/docs/browser_actions.md#page-queried-items-contains-not,any,all-or-exact)

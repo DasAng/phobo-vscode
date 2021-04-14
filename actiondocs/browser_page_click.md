@@ -14,3 +14,8 @@ Example of usage:
 - Click on a button with the specified XPATH expression
 
     > `page click //*button[@id='mybutton']`
+
+
+References:
+
+[Page click](https://github.com/DasAng/phobo-release/blob/master/docs/browser_actions.md#page-click)

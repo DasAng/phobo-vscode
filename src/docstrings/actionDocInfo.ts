@@ -46,6 +46,8 @@ export const EnvironmentExportDescription = fs.readFileSync(path.join(__filename
 export const EnvironmentGetDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'environment_get.md')).toString();
 export const RandomStringDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'random_string.md')).toString();
 export const PrintDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'print.md')).toString();
+export const RepeatUntilDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'repeat_until.md')).toString();
+export const MatchResultDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'match_result.md')).toString();
 
 
 type actionDocMapperType = {
@@ -97,5 +99,7 @@ export const actionDocMapper: actionDocMapperType = {
     EnvironmentExportAction: EnvironmentExportDescription,
     EnvironmentGetAction: EnvironmentGetDescription,
     RandomStringAction: RandomStringDescription,
-    PrintAction: PrintDescription
+    PrintAction: PrintDescription,
+    RepeatUntilAction: RepeatUntilDescription,
+    MatchResultAction: MatchResultDescription
 }

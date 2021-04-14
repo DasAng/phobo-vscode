@@ -21,3 +21,8 @@ Example of usage:
 - Expect the url to contain the string ?query=10&name=bob
 
     > `page url like ?query=10&name=bob`
+
+
+References:
+
+[Page url like](https://github.com/DasAng/phobo-release/blob/master/docs/browser_actions.md#page-url-like)

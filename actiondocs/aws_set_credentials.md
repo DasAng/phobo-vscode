@@ -17,3 +17,7 @@ Example of usage:
 - Set the aws access key, secret key and session token:
 
     > `aws credentials: accesskey=AIBSZWDF secretkey=/sdasds#xa12dsad sessiontoken=|sdadasdsdsad%sad2`
+
+References:
+
+[Set credentials](https://github.com/DasAng/phobo-release/blob/master/docs/aws_credentials_actions.md#set-credentials)

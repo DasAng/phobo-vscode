@@ -3,10 +3,10 @@
 This action will list all the files and folders inside the specified S3 bucket.
 
 - **`bucket`**: this parameter is required and is the name of the S3 bucket to list
-- `prefix`: specify only files and folders under a prefix. You can use an [Intrinsic expression](#intrinsic_expression.md) for this parameter. This parameter is optional
+- `prefix`: specify only files and folders under a prefix. You can use an [Intrinsic expression](https://github.com/DasAng/phobo-release/blob/master/docs/intrinsic_expression.md) for this parameter. This parameter is optional
 - `maxkeys`: maximum number of items included in the list. This parameter is optional
 - `fetchowner`: if you want to return owner field with each key in the result then set the fetch owner field to true. This parameter is optional
-- `delimiter`: a delimiter is a character you use to group keys. You can use an [Intrinsic expression](#intrinsic_expression.md) for this parameter. This parameter is optional
+- `delimiter`: a delimiter is a character you use to group keys. You can use an [Intrinsic expression](https://github.com/DasAng/phobo-release/blob/master/docs/intrinsic_expression.md) for this parameter. This parameter is optional
 - `fetchall`: this value can either be *true* or *false*. If true then all objects will be fetched if not it will fetch only the specified objects up to the specified *maxkeys* or 1000. This parameter is optional.
 
 The result of the action is a JSON response looking like the following:
@@ -67,3 +67,4 @@ Example of usage:
 References:
 
 [ListObjectsV2](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html)
+[List objects](https://github.com/DasAng/phobo-release/blob/master/docs/aws_s3_actions.md#list-objects)

@@ -11,3 +11,8 @@ Example of usage:
 - Wait for 5000ms:
 
     > `page wait 5000`
+
+
+References:
+
+[Page wait](https://github.com/DasAng/phobo-release/blob/master/docs/browser_actions.md#page-wait)

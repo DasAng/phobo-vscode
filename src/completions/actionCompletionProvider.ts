@@ -39,6 +39,8 @@ import {
     EnvironmentSetDescription,
     JmesPathMatchDescription,
     JmesPathSelectDescription,
+    MatchResultDescription,
+    RepeatUntilDescription,
     S3ListObjectsDescription,
     SFNDescribeFunctionDescription,
     SFNListFunctionsDescription,
@@ -104,7 +106,9 @@ export default class ActionCompletionProvider {
                         createCompletionItem('page set value', 'page value', BrowserPageSetValueDescription, 'page set value "@text" @xpathquery'),
                         createCompletionItem('set environment variable', 'set environment variable', EnvironmentSetDescription, 'set environment variable: name=`@name` value=`@value`'),
                         createCompletionItem('export', 'environment export', EnvironmentExportDescription, 'export @name=@value'),
-                        createCompletionItem('get environment variable', 'get environment variable', EnvironmentGetDescription, 'get environment variable @name')
+                        createCompletionItem('get environment variable', 'get environment variable', EnvironmentGetDescription, 'get environment variable @name'),
+                        createCompletionItem('repeat until', 'repeat until', RepeatUntilDescription, 'repeat until interval=1000 count=1\n"""\naction=@action\ncondition=@condition\n"""'),
+                        createCompletionItem('match result', 'match result', MatchResultDescription, 'match result equal @value')
                     ];
                 }
             });

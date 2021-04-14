@@ -2,7 +2,7 @@
 
 This action will create a new userpool.
 
-- **`poolname`**: the name of the userpool. You can use an [Intrinsic expression](#intrinsic_expression.md) for this parameter.
+- **`poolname`**: the name of the userpool. You can use an [Intrinsic expression](https://github.com/DasAng/phobo-release/blob/master/docs/intrinsic_expression.md) for this parameter.
 - **`docstring`**: you can pass additional options as a json object in **docstring**. The complete option format looks like the following:
 
     ```json
@@ -272,3 +272,4 @@ Example of usage:
 References:
 
 [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html)
+[Create userpool](https://github.com/DasAng/phobo-release/blob/master/docs/aws_cognito_actions.md#create-userpool)
