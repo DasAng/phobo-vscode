@@ -37,6 +37,9 @@ import {
     EnvironmentExportDescription,
     EnvironmentGetDescription,
     EnvironmentSetDescription,
+    HttpGetDescription,
+    HttpStatusDescription,
+    HttpStatusOkDescription,
     JmesPathMatchDescription,
     JmesPathSelectDescription,
     MatchResultDescription,
@@ -108,7 +111,10 @@ export default class ActionCompletionProvider {
                         createCompletionItem('export', 'environment export', EnvironmentExportDescription, 'export @name=@value'),
                         createCompletionItem('get environment variable', 'get environment variable', EnvironmentGetDescription, 'get environment variable @name'),
                         createCompletionItem('repeat until', 'repeat until', RepeatUntilDescription, 'repeat until interval=1000 count=1\n"""\naction=@action\ncondition=@condition\n"""'),
-                        createCompletionItem('match result', 'match result', MatchResultDescription, 'match result equal @value')
+                        createCompletionItem('match result', 'match result', MatchResultDescription, 'match result equal @value'),
+                        createCompletionItem('http get', 'http get', HttpGetDescription, 'http get `@url`'),
+                        createCompletionItem('http status', 'http status', HttpStatusDescription, 'http status 200'),
+                        createCompletionItem('http ok', 'http ok', HttpStatusOkDescription, 'http ok')
                     ];
                 }
             });
