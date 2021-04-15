@@ -1,8 +1,13 @@
-## Http get
+## Http request
 
-This action will perform a HTTP/HTTPS GET request to the specified url.
+This action will perform a HTTP/HTTPS request to the specified url.
 
-- **`@url`**: this parameter is required and is url to retrieve data. You can use an [Intrinsic expression](intrinsic_expression.md) for this parameter
+- **`@method`**: this parameter is required and specifies the request method. It can be one of the following:
+    - get
+    - head
+    - options
+    - delete
+- **`@url`**: this parameter is required and is url to retrieve data. You can use an [Intrinsic expression](https://github.com/DasAng/phobo-release/blob/master/docs/intrinsic_expression.md) for this parameter
 - **`@headers`**: this parameter is optional. Specify the headers to use with the request. The format for specifying headers must be a comma separated name value pair like so:
     
     \<name>:\<value>
@@ -41,6 +46,18 @@ Example of usage:
 
     > http get \`https://myapi.com/users/\` headers=\`content-type:application/json,content-length:1024\`
 
+- Make a HTTP head request for https://myapi.com/users/ 
+
+    > http head \`https://myapi.com/users/\`
+
+- Make a HTTP delete request for https://myapi.com/users/ 
+
+    > http delete \`https://myapi.com/users/\`
+
+- Make a HTTP options request for https://myapi.com/users/ 
+
+    > http options \`https://myapi.com/users/\`
+
 References:
 
-[Http get](https://github.com/DasAng/phobo-release/blob/master/docs/request_actions.md#http-get)
+[Http request](https://github.com/DasAng/phobo-release/blob/master/docs/request_actions.md#http-request)

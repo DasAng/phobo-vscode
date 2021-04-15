@@ -48,9 +48,10 @@ export const RandomStringDescription = fs.readFileSync(path.join(__filename, '..
 export const PrintDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'print.md')).toString();
 export const RepeatUntilDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'repeat_until.md')).toString();
 export const MatchResultDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'match_result.md')).toString();
-export const HttpGetDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'http_get.md')).toString();
+export const HttpRequestDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'http_request.md')).toString();
 export const HttpStatusDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'http_status.md')).toString();
 export const HttpStatusOkDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'http_ok.md')).toString();
+export const HttpRequestWithBodyDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'http_request_with_body.md')).toString();
 
 
 type actionDocMapperType = {
@@ -105,7 +106,8 @@ export const actionDocMapper: actionDocMapperType = {
     PrintAction: PrintDescription,
     RepeatUntilAction: RepeatUntilDescription,
     MatchResultAction: MatchResultDescription,
-    HttpGetAction: HttpGetDescription,
+    HttpRequestAction: HttpRequestDescription,
     HttpStatusAction: HttpStatusDescription,
-    HttpStatusOkAction: HttpStatusOkDescription
+    HttpStatusOkAction: HttpStatusOkDescription,
+    HttpRequestWithBodyAction: HttpRequestWithBodyDescription,
 }
