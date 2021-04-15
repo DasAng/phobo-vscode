@@ -52,6 +52,7 @@ export const HttpRequestDescription = fs.readFileSync(path.join(__filename, '..'
 export const HttpStatusDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'http_status.md')).toString();
 export const HttpStatusOkDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'http_ok.md')).toString();
 export const HttpRequestWithBodyDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'http_request_with_body.md')).toString();
+export const VariableDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'variable.md')).toString();
 
 
 type actionDocMapperType = {
@@ -110,4 +111,5 @@ export const actionDocMapper: actionDocMapperType = {
     HttpStatusAction: HttpStatusDescription,
     HttpStatusOkAction: HttpStatusOkDescription,
     HttpRequestWithBodyAction: HttpRequestWithBodyDescription,
+    VariableAction: VariableDescription,
 }

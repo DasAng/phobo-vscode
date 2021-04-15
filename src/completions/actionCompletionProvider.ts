@@ -48,7 +48,8 @@ import {
     S3ListObjectsDescription,
     SFNDescribeFunctionDescription,
     SFNListFunctionsDescription,
-    SSMGetParameterDescription
+    SSMGetParameterDescription,
+    VariableDescription
 } from '../docstrings/actionDocInfo';
 import { createCompletionItem } from './completionItemHelper';
 
@@ -129,6 +130,7 @@ export default class ActionCompletionProvider {
                         createCompletionItem('http with body delete', 'http body delete', HttpRequestWithBodyDescription, 'http with body delete `@url`\n"""\n@json\n"""'),
                         createCompletionItem('http with body head', 'http body head', HttpRequestWithBodyDescription, 'http with body head `@url`\n"""\n@json\n"""'),
                         createCompletionItem('http with body options', 'http body options', HttpRequestWithBodyDescription, 'http with body options `@url`\n"""\n@json\n"""'),
+                        createCompletionItem('variable', 'variable', VariableDescription, 'variable name=`@name` value=`@value`')
                     ];
                 }
             });
