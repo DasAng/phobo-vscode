@@ -13,6 +13,7 @@ import DebuggerRuntime from './debuggerRuntime';
 import * as _ from 'lodash';
 import StepsDecorator from '../decorators/stepsDecorator';
 
+
 /**
  * This interface describes the mock-debug specific launch attributes
  * (which are not part of the Debug Adapter Protocol).
@@ -44,6 +45,7 @@ export class PhoboDebugSession extends LoggingDebugSession {
 	private debuggerRuntime: DebuggerRuntime;
 	private _breakpointId = 1;
 	private scopeLocal = 'local';
+	private scopeGlobal = 'global';
 	private _activeEditor?: vscode.TextEditor
 
 	private stepsDecorator: StepsDecorator;
@@ -53,12 +55,12 @@ export class PhoboDebugSession extends LoggingDebugSession {
 	 * Creates a new debug adapter that is used for one debug session.
 	 * We configure the default implementation of a debug adapter here.
 	 */
-	public constructor(fileAccessor: FileAccessor) {
+	public constructor(fileAccessor: FileAccessor, stepsDecorator: StepsDecorator) {
 		super("phobo-debug.txt");
 
 		let self = this;
 
-		this.stepsDecorator = new StepsDecorator();
+		this.stepsDecorator = stepsDecorator;
 
 		// this debugger uses one-based lines and columns
 		this.setDebuggerLinesStartAt1(true);
@@ -178,6 +180,11 @@ export class PhoboDebugSession extends LoggingDebugSession {
 
 		this._activeEditor = vscode.window.activeTextEditor;
 
+		if (this._activeEditor) {
+			this.stepsDecorator.clearDecorators(this._activeEditor);
+		}
+		
+
 		await this.debuggerRuntime.start(this._breakpoints);
 
 		this.sendResponse(response);
@@ -258,7 +265,8 @@ export class PhoboDebugSession extends LoggingDebugSession {
 
 		response.body = {
 			scopes: [
-				new Scope("Local", this._variableHandles.create(this.scopeLocal), false)
+				new Scope("Local", this._variableHandles.create(this.scopeLocal), false),
+				new Scope("Global", this._variableHandles.create(this.scopeGlobal), false)
 			]
 		};
 		this.sendResponse(response);
@@ -373,6 +381,22 @@ export class PhoboDebugSession extends LoggingDebugSession {
 				}
 			}
 		}
+		else if (id === this.scopeGlobal) {
+			if (this.debuggerRuntime) {
+				const lastFrame = this.debuggerRuntime.getLastFrame();
+				if (lastFrame && lastFrame.data) {
+					if (lastFrame.data.variables) {
+						variables.push({
+							name: 'variables',
+							type: 'object',
+							value: 'Object',
+							variablesReference: this._variableHandles.create('data.variables'),
+							presentationHint: { kind: 'data'}
+						});
+					}
+				}
+			}
+		}
 		else if (id === 'data.attachments') {
 
 			const lastFrame = this.debuggerRuntime.getLastFrame();
@@ -393,7 +417,7 @@ export class PhoboDebugSession extends LoggingDebugSession {
 			const lastFrame = this.debuggerRuntime.getLastFrame();
 			if (lastFrame) {
 				const obj = _.get(lastFrame, id);
-				console.log('variable obj: ', obj);
+				//console.log('variable obj: ', obj);
 				if (typeof obj === 'object') {
 					const props = Object.keys(obj);
 					for(let prop of props) {
