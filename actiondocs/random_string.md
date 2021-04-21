@@ -15,3 +15,8 @@ Example of usage:
 - Make a random string of length 5
 
     > `random string 5`
+
+
+References:
+
+[Random string](https://github.com/DasAng/phobo-release/blob/master/docs/misc_actions.md#random-string)

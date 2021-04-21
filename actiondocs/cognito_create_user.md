@@ -2,8 +2,8 @@
 
 This action will create a new user in the specified user pool.
 
-- **`userpoolid`**: the user pool ID for the user pool where the user will be created. You can use an [Intrinsic expression](#intrinsic_expression.md) for this parameter.
-- **`username`**: the username for the user. You can use an [Intrinsic expression](#intrinsic_expression.md) for this parameter.
+- **`userpoolid`**: the user pool ID for the user pool where the user will be created. You can use an [Intrinsic expression](https://github.com/DasAng/phobo-release/blob/master/docs/intrinsic_expression.md) for this parameter.
+- **`username`**: the username for the user. You can use an [Intrinsic expression](https://github.com/DasAng/phobo-release/blob/master/docs/intrinsic_expression.md) for this parameter.
 - `desireddeliverymediums`: specify "email" if email will be used to send the welcome message. Specify "sms" if the phone number will be used. Specify "both" if both should be used. This parameter is optional.
 - `forcealiascreation`: this parameter is only used if the *phone_number_verified* or *email_verified* attribute is set to **true**. Otherwise, it is ignored.
 If this parameter is set to **true** and the phone number or email address specified in the *userattributes* parameter already exists as an alias with a different user, the action call will migrate the alias from the previous user to the newly created user. The previous user will no longer be able to log in using that alias.
@@ -20,7 +20,7 @@ If this parameter is set to **false**, the action throws an *AliasExistsExceptio
         /* more items */
     ]
     ```
-    You can use an [Intrinsic expression](#intrinsic_expression.md) for this parameter. This parameter is optional.
+    You can use an [Intrinsic expression](https://github.com/DasAng/phobo-release/blob/master/docs/intrinsic_expression.md) for this parameter. This parameter is optional.
 - `validationdata`: the user's validation data. This is an array of name-value pairs that contain user attributes and attribute values that you can use for custom validation, such as restricting the types of user accounts that can be registered. For example, you might choose to allow or disallow user sign-up based on the user's domain. The format is a JSON object like the following:
     ```json
     ValidationData: [
@@ -31,7 +31,7 @@ If this parameter is set to **false**, the action throws an *AliasExistsExceptio
         /* more items */
     ]
     ```
-    You can use an [Intrinsic expression](#intrinsic_expression.md) for this parameter. This parameter is optional.
+    You can use an [Intrinsic expression](https://github.com/DasAng/phobo-release/blob/master/docs/intrinsic_expression.md) for this parameter. This parameter is optional.
 
 The result of the action is a JSON response looking like the following:
 
@@ -92,3 +92,4 @@ Example of usage:
 References:
 
 [AdminCreateUSer](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminCreateUser.html)
+[Create user](https://github.com/DasAng/phobo-release/blob/master/docs/aws_cognito_actions.md#create-user)

@@ -24,3 +24,7 @@ Example of usage:
 - Check if element(s) is hidden using specified XPATH query
 
     > `page element is hidden : //*div/li/a[1]`
+
+References:
+
+[Page element is visible or hidden](https://github.com/DasAng/phobo-release/blob/master/docs/browser_actions.md#page-element-is-visible-or-hidden)

@@ -2,9 +2,9 @@
 
 This action will sign in the cognito user using username and password flow.
 
-- **`clientid`**: the app client ID. You can use an [Intrinsic expression](#intrinsic_expression.md) for this parameter.
-- **`username`**: user name. You can use an [Intrinsic expression](#intrinsic_expression.md) for this parameter.
-- **`password`**: user password. You can use an [Intrinsic expression](#intrinsic_expression.md) for this parameter.
+- **`clientid`**: the app client ID. You can use an [Intrinsic expression](https://github.com/DasAng/phobo-release/blob/master/docs/intrinsic_expression.md) for this parameter.
+- **`username`**: user name. You can use an [Intrinsic expression](https://github.com/DasAng/phobo-release/blob/master/docs/intrinsic_expression.md) for this parameter.
+- **`password`**: user password. You can use an [Intrinsic expression](https://github.com/DasAng/phobo-release/blob/master/docs/intrinsic_expression.md) for this parameter.
 
 The action returns a JSON result:
 
@@ -39,3 +39,4 @@ Example of usage:
 References:
 
 [InitiateAuth](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html)
+[User login](https://github.com/DasAng/phobo-release/blob/master/docs/aws_cognito_actions.md#user-login)

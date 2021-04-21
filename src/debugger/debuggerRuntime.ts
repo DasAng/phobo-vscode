@@ -17,7 +17,8 @@ export enum DebuggerActionType {
     STEP=2,
     STOP=3,
     BREAKPOINT=4,
-    BREAKPOINTCHANGED=5
+    BREAKPOINTCHANGED=5,
+    STEPINFO=6
 }
 
 interface IStackFrame {
@@ -58,6 +59,8 @@ export default class DebuggerRuntime extends EventEmitter {
             this.lastFrame = json;
             if (json.type === DebuggerActionType.BREAKPOINT) {
                 this.sendEvent('stopOnBreak', this.lastFrame);
+            } else if(json.type === DebuggerActionType.STEPINFO) {
+                this.sendEvent('stepInfo', this.lastFrame);
             }
             
         } catch (error) {
@@ -70,6 +73,7 @@ export default class DebuggerRuntime extends EventEmitter {
     }
 
     public async start(breakpoints: number[]) {
+        let self = this;
         this._isRunning = true;
         const serverPort = this.randomPort(7000, 9000);
         console.log('start server at port: ', serverPort);
@@ -91,11 +95,13 @@ export default class DebuggerRuntime extends EventEmitter {
                         }
                         if (stdout) {
                             console.log(stdout);
+                            self.sendEvent('log', stdout);
                         }
                     });
                     if (this.debuggeeProcess) {
                         console.log("phobo pid: ", this.debuggeeProcess.pid);
                         this.debuggeeProcess.on('exit', this.onDebuggeeExit.bind(this));
+                        this.debuggeeProcess.stdout?.on('data', this.onStdoutData.bind(this));
                     }
                     
                 } else {
@@ -181,7 +187,11 @@ export default class DebuggerRuntime extends EventEmitter {
 
     private onDebuggeeExit(code: number) {
         console.log('phobo exited with code: ', code);
-        this.sendEvent('end');
+        this.sendEvent('end', code);
+    }
+
+    private onStdoutData(data: any) {
+        this.sendEvent('log', data);
     }
 
     private randomPort(min: number, max: number) {

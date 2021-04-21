@@ -33,3 +33,7 @@ Example of usage:
 - Launch a headless edge browser with specified width and height
 
    > `a new headless edge browser 1200,768`
+
+References:
+
+[Launch browser](https://github.com/DasAng/phobo-release/blob/master/docs/browser_actions.md#launch-browser)

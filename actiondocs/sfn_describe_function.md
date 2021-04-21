@@ -2,7 +2,7 @@
 
 This action will retrive detailed information for a given step function.
 
-- `arn`: the arn of the step function. You can use an [Intrinsic expression](#intrinsic_expression.md) for this parameter.
+- `arn`: the arn of the step function. You can use an [Intrinsic expression](https://github.com/DasAng/phobo-release/blob/master/docs/intrinsic_expression.md) for this parameter.
 
 
 The result of the action is a JSON response looking like the following:
@@ -34,3 +34,4 @@ Example of usage:
 References:
 
 [DescribeStatMachine](https://docs.aws.amazon.com/step-functions/latest/apireference/API_DescribeStateMachine.html)
+[Describe step function](https://github.com/DasAng/phobo-release/blob/master/docs/aws_stepfunctions_actions.md#describe-step-function)

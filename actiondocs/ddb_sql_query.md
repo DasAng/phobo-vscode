@@ -2,7 +2,7 @@
 
 This action allows you to perform reads and singleton writes on data stored in DynamoDB, using PartiQL
 
-- **`sqlstatement`**: the sql statement must be inside a docstring. You can use an [Intrinsic expression](#intrinsic_expression.md) for this parameter.
+- **`sqlstatement`**: the sql statement must be inside a docstring. You can use an [Intrinsic expression](https://github.com/DasAng/phobo-release/blob/master/docs/intrinsic_expression.md) for this parameter.
 
 The reponse JSON will have the following structure:
 
@@ -44,3 +44,4 @@ Example of usage:
 References:
 
 [ExecuteStatement](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ExecuteStatement.html)
+[SQL query](https://github.com/DasAng/phobo-release/blob/master/docs/aws_dynamodb_actions.md#sql-query)

@@ -17,3 +17,7 @@ Example of usage:
 - Expect the last queried items is equal to 5
 
     > `page count queried items are 5`
+
+References:
+
+[Page count queried items](https://github.com/DasAng/phobo-release/blob/master/docs/browser_actions.md#page-count-queried-items)

@@ -16,3 +16,8 @@ Example of usage:
 - Type the word *hello world* into an input element
 
     > `page type "hello world" //*input[@id='myinput']`
+
+
+References:
+
+[Page type](https://github.com/DasAng/phobo-release/blob/master/docs/browser_actions.md#page-type)

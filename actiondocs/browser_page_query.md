@@ -17,3 +17,8 @@ Example of usage:
 - Find all elements on the page using the specified XPATH
 
     > `page query  /li/ul`
+
+
+References:
+
+[Page query](https://github.com/DasAng/phobo-release/blob/master/docs/browser_actions.md#page-query)
