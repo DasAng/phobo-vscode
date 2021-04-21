@@ -12,3 +12,7 @@ Example of usage:
 - Get the AWS credentials from environment variables
 
     > `aws credentials from environment`
+
+References:
+
+[Get credentials from environment](https://github.com/DasAng/phobo-release/blob/master/docs/aws_credentials_actions.md#get-credentials-from-environment)

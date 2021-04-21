@@ -37,12 +37,19 @@ import {
     EnvironmentExportDescription,
     EnvironmentGetDescription,
     EnvironmentSetDescription,
+    HttpRequestDescription,
+    HttpRequestWithBodyDescription,
+    HttpStatusDescription,
+    HttpStatusOkDescription,
     JmesPathMatchDescription,
     JmesPathSelectDescription,
+    MatchResultDescription,
+    RepeatUntilDescription,
     S3ListObjectsDescription,
     SFNDescribeFunctionDescription,
     SFNListFunctionsDescription,
-    SSMGetParameterDescription
+    SSMGetParameterDescription,
+    VariableDescription
 } from '../docstrings/actionDocInfo';
 import { createCompletionItem } from './completionItemHelper';
 
@@ -104,7 +111,26 @@ export default class ActionCompletionProvider {
                         createCompletionItem('page set value', 'page value', BrowserPageSetValueDescription, 'page set value "@text" @xpathquery'),
                         createCompletionItem('set environment variable', 'set environment variable', EnvironmentSetDescription, 'set environment variable: name=`@name` value=`@value`'),
                         createCompletionItem('export', 'environment export', EnvironmentExportDescription, 'export @name=@value'),
-                        createCompletionItem('get environment variable', 'get environment variable', EnvironmentGetDescription, 'get environment variable @name')
+                        createCompletionItem('get environment variable', 'get environment variable', EnvironmentGetDescription, 'get environment variable @name'),
+                        createCompletionItem('repeat until', 'repeat until', RepeatUntilDescription, 'repeat until interval=1000 count=1\n"""\naction=@action\ncondition=@condition\n"""'),
+                        createCompletionItem('match result', 'match result', MatchResultDescription, 'match result equal @value'),
+                        createCompletionItem('http get', 'http get', HttpRequestDescription, 'http get `@url`'),
+                        createCompletionItem('http post', 'http post', HttpRequestDescription, 'http post `@url`'),
+                        createCompletionItem('http put', 'http put', HttpRequestDescription, 'http put `@url`'),
+                        createCompletionItem('http patch', 'http patch', HttpRequestDescription, 'http patch `@url`'),
+                        createCompletionItem('http delete', 'http delete', HttpRequestDescription, 'http delete `@url`'),
+                        createCompletionItem('http head', 'http head', HttpRequestDescription, 'http head `@url`'),
+                        createCompletionItem('http options', 'http options', HttpRequestDescription, 'http options `@url`'),
+                        createCompletionItem('http status', 'http status', HttpStatusDescription, 'http status 200'),
+                        createCompletionItem('http ok', 'http ok', HttpStatusOkDescription, 'http ok'),
+                        createCompletionItem('http with body get', 'http body get', HttpRequestWithBodyDescription, 'http with body get `@url`\n"""\n@json\n"""'),
+                        createCompletionItem('http with body post', 'http body post', HttpRequestWithBodyDescription, 'http with body post `@url`\n"""\n@json\n"""'),
+                        createCompletionItem('http with body put', 'http body put', HttpRequestWithBodyDescription, 'http with body put `@url`\n"""\n@json\n"""'),
+                        createCompletionItem('http with body patch', 'http body patch', HttpRequestWithBodyDescription, 'http with body patch `@url`\n"""\n@json\n"""'),
+                        createCompletionItem('http with body delete', 'http body delete', HttpRequestWithBodyDescription, 'http with body delete `@url`\n"""\n@json\n"""'),
+                        createCompletionItem('http with body head', 'http body head', HttpRequestWithBodyDescription, 'http with body head `@url`\n"""\n@json\n"""'),
+                        createCompletionItem('http with body options', 'http body options', HttpRequestWithBodyDescription, 'http with body options `@url`\n"""\n@json\n"""'),
+                        createCompletionItem('variable', 'variable', VariableDescription, 'variable name=`@name` value=`@value`')
                     ];
                 }
             });

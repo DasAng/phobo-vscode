@@ -2,7 +2,7 @@
 
 This action will retrieve a parameter from the SSM parameter store.
 
-- **`path`**: the parameter store path to retrieve the value from. You can use an [Intrinsic expression](#intrinsic_expression.md) for this parameter.
+- **`path`**: the parameter store path to retrieve the value from. You can use an [Intrinsic expression](https://github.com/DasAng/phobo-release/blob/master/docs/intrinsic_expression.md) for this parameter.
 
 The reponse JSON will have the following structure:
 
@@ -31,3 +31,4 @@ Example of usage:
 References:
 
 [GetParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameter.html)
+[Get parameter](https://github.com/DasAng/phobo-release/blob/master/docs/aws_ssm_actions.md#get-parameter)

@@ -21,3 +21,7 @@ Example of usage:
 - Get the AWS credentials from configuration file using specified profile 'myprofile':
 
     > `aws credentials from config profile=myprofile`
+
+References:
+
+[Get credentials from configuration file](https://github.com/DasAng/phobo-release/blob/master/docs/aws_credentials_actions.md#get-credentials-from-configuration-file)

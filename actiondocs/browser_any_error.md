@@ -9,3 +9,7 @@ Example of usage:
 - Check if there were any network request errors
 
    > `any request error`
+
+References:
+
+[Any request error](https://github.com/DasAng/phobo-release/blob/master/docs/browser_actions.md#any-request-error)

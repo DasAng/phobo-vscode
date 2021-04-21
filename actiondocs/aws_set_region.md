@@ -13,3 +13,7 @@ Example of usage:
 - Set the aws region to *us-east-1*:
 
     > `aws region us-east-1`
+
+References:
+
+[Set region](https://github.com/DasAng/phobo-release/blob/master/docs/aws_credentials_actions.md#set-region)

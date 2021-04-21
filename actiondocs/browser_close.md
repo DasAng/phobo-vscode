@@ -9,3 +9,7 @@ Example of usage:
 - Valid expressions
 
     > `close browser`
+
+References:
+
+[Close browser](https://github.com/DasAng/phobo-release/blob/master/docs/browser_actions.md#close-browser)

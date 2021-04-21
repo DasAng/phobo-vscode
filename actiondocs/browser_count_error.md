@@ -11,3 +11,7 @@ Example of usage:
 - Check if there are exactly 1 network request error
 
    > `1 request error`
+
+References:
+
+[Exact request error](https://github.com/DasAng/phobo-release/blob/master/docs/browser_actions.md#exact-request-error)

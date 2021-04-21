@@ -18,3 +18,7 @@ Example of usage:
 - Delete a cookie named *mycookie* with domain *mydomain*
 
     > `page delete cookie: name=mycookie domain=mydomain`
+
+References:
+
+[Page delete cookie](https://github.com/DasAng/phobo-release/blob/master/docs/browser_actions.md#page-delete-cookie)

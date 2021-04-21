@@ -9,6 +9,7 @@ import { WorkspaceFolder, DebugConfiguration, ProviderResult, CancellationToken 
 import { PhoboDebugSession } from './phoboDebugSession';
 import { FileAccessor } from './debuggerRuntime';
 import * as fs from 'fs';
+import StepsDecorator from '../decorators/stepsDecorator';
 
 export function activatePhoboDebug(context: vscode.ExtensionContext) {
 
@@ -139,7 +140,9 @@ export const workspaceFileAccessor: FileAccessor = {
 
 class InlineDebugAdapterFactory implements vscode.DebugAdapterDescriptorFactory {
 
+	private stepsDecorator: StepsDecorator = new StepsDecorator();
+
 	createDebugAdapterDescriptor(_session: vscode.DebugSession): ProviderResult<vscode.DebugAdapterDescriptor> {
-		return new vscode.DebugAdapterInlineImplementation(new PhoboDebugSession(workspaceFileAccessor));
+		return new vscode.DebugAdapterInlineImplementation(new PhoboDebugSession(workspaceFileAccessor, this.stepsDecorator));
 	}
 }

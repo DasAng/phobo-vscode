@@ -5,7 +5,7 @@ If the page failed to load within the timeout period then it will still count as
 
 All network requests will be captured within the timeout period and will be displayed in the HTML report.
 
-This action will fail if you have not already launched a browser with the action `a new browser` see [Launch browser](#launch-browser)
+This action will fail if you have not already launched a browser with the action `a new browser` see [Launch browser](https://github.com/DasAng/phobo-release/blob/master/docs/browser_actions.md#launch-browser)
 
 - `@url`: url to navigate to
 - `@timeout`: an optional timeout value in milliseconds to wait for the page to load
@@ -21,3 +21,8 @@ Example of usage:
 - Set timeout value to 10000ms
 
    > `navigate to https://google.com timeout=10000`
+  
+
+References:
+
+[Navigate to url](https://github.com/DasAng/phobo-release/blob/master/docs/browser_actions.md#navigate-to-url)

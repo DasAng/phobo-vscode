@@ -19,3 +19,7 @@ Example of usage:
 - Reload page and set timeout to 5000ms
 
     > `page reload timeout=5000`
+
+References:
+
+[Page reload](https://github.com/DasAng/phobo-release/blob/master/docs/browser_actions.md#page-reload)
