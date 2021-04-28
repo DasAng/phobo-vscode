@@ -25,3 +25,15 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
     - HTTP requests
     - Repeat until
     - Match results
+
+
+## [0.3.0] - 2021-04-28
+
+### Added
+
+- Support auto completion and hover documentation for actions:
+    - Repeat for each
+    - Cognito GetId
+    - Cognito GetOpenIdToken
+    - STS AssumeRoleWithWebIdentity
+    - Var
