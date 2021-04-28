@@ -155,7 +155,7 @@
 	},
 	"dependencies": {
 		"await-notify": "^1.0.1",
-		"bunbo": "^1.1.19",
+		"bunbo": "^1.1.20",
 		"lodash": "^4.17.21",
 		"vscode-debugadapter": "^1.46.0",
 		"ws": "^7.4.4"

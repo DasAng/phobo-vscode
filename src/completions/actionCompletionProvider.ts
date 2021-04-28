@@ -46,12 +46,14 @@ import {
     JmesPathMatchDescription,
     JmesPathSelectDescription,
     MatchResultDescription,
+    RepeatForEachDescription,
     RepeatUntilDescription,
     S3ListObjectsDescription,
     SFNDescribeFunctionDescription,
     SFNListFunctionsDescription,
     SSMGetParameterDescription,
     StsAssumeRoleWithWebIdentityDescription,
+    VarDescription,
     VariableDescription
 } from '../docstrings/actionDocInfo';
 import { createCompletionItem } from './completionItemHelper';
@@ -118,6 +120,7 @@ export default class ActionCompletionProvider {
                         createCompletionItem('export', 'environment export', EnvironmentExportDescription, 'export @name=@value'),
                         createCompletionItem('get environment variable', 'get environment variable', EnvironmentGetDescription, 'get environment variable @name'),
                         createCompletionItem('repeat until', 'repeat until', RepeatUntilDescription, 'repeat until interval=1000 count=1\n"""\naction=@action\ncondition=@condition\n"""'),
+                        createCompletionItem('repeat for each', 'repeat for each', RepeatForEachDescription, 'repeat for each items=`@items`\n"""\naction=@action\n"""'),
                         createCompletionItem('match result', 'match result', MatchResultDescription, 'match result equal @value'),
                         createCompletionItem('http get', 'http get', HttpRequestDescription, 'http get `@url`'),
                         createCompletionItem('http post', 'http post', HttpRequestDescription, 'http post `@url`'),
@@ -136,6 +139,7 @@ export default class ActionCompletionProvider {
                         createCompletionItem('http with body head', 'http body head', HttpRequestWithBodyDescription, 'http with body head `@url`\n"""\n@json\n"""'),
                         createCompletionItem('http with body options', 'http body options', HttpRequestWithBodyDescription, 'http with body options `@url`\n"""\n@json\n"""'),
                         createCompletionItem('variable', 'variable', VariableDescription, 'variable name=`@name` value=`@value`'),
+                        createCompletionItem('variable', 'variable', VarDescription, 'var @name=@value'),
                         createCompletionItem('aws sts assume role with web identity', 'aws sts', StsAssumeRoleWithWebIdentityDescription, 'aws sts assume role with web identity: rolearn=`@rolearn` sessionname=`@sessionname` token=`@token`')
                     ];
                 }

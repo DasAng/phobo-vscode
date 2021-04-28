@@ -30,4 +30,4 @@ Example of usage:
 
 References:
 
-[Repeat until](https://github.com/DasAng/phobo-release/blob/master/docs/match_actions.md#repeat-until)
+[Repeat until](https://github.com/DasAng/phobo-release/blob/master/docs/condition_actions.md#repeat-until)
