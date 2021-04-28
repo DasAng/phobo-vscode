@@ -10,6 +10,8 @@ export const CognitoSetUserPasswordDescription = fs.readFileSync(path.join(__fil
 export const CognitoDeleteUsersWhenFinishedDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'cognito_delete_users_when_finished.md')).toString();
 export const CognitoInitiateAuthDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'cognito_initiate_auth.md')).toString();
 export const CognitoUserLoginDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'cognito_user_login.md')).toString();
+export const CognitoGetIdDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'cognito_get_id.md')).toString();
+export const CognitoGetOpenIdTokenDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'cognito_getopenidtoken.md')).toString();
 export const S3ListObjectsDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 's3_list_objects.md')).toString();
 export const DDBSqlQueryDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'ddb_sql_query.md')).toString();
 export const SFNListFunctionsDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'sfn_list_functions.md')).toString();
@@ -47,12 +49,15 @@ export const EnvironmentGetDescription = fs.readFileSync(path.join(__filename, '
 export const RandomStringDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'random_string.md')).toString();
 export const PrintDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'print.md')).toString();
 export const RepeatUntilDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'repeat_until.md')).toString();
+export const RepeatForEachDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'repeat_foreach.md')).toString();
 export const MatchResultDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'match_result.md')).toString();
 export const HttpRequestDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'http_request.md')).toString();
 export const HttpStatusDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'http_status.md')).toString();
 export const HttpStatusOkDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'http_ok.md')).toString();
 export const HttpRequestWithBodyDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'http_request_with_body.md')).toString();
 export const VariableDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'variable.md')).toString();
+export const VarDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'var.md')).toString();
+export const StsAssumeRoleWithWebIdentityDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'sts_assume_role_with_web_identity.md')).toString();
 
 
 type actionDocMapperType = {
@@ -69,6 +74,8 @@ export const actionDocMapper: actionDocMapperType = {
     CognitoDeleteUsersWhenFinishedAction: CognitoDeleteUsersWhenFinishedDescription,
     CognitoInitiateAuthAction: CognitoInitiateAuthDescription,
     CognitoUserLoginAction: CognitoUserLoginDescription,
+    CognitoGetIdAction: CognitoGetIdDescription,
+    CognitoGetOpenIdTokenAction: CognitoGetOpenIdTokenDescription,
     S3ListObjectsAction: S3ListObjectsDescription,
     DDBSqlQueryAction: DDBSqlQueryDescription,
     SFNListFunctionsAction: SFNListFunctionsDescription,
@@ -106,10 +113,13 @@ export const actionDocMapper: actionDocMapperType = {
     RandomStringAction: RandomStringDescription,
     PrintAction: PrintDescription,
     RepeatUntilAction: RepeatUntilDescription,
+    RepeatForEachAction: RepeatForEachDescription,
     MatchResultAction: MatchResultDescription,
     HttpRequestAction: HttpRequestDescription,
     HttpStatusAction: HttpStatusDescription,
     HttpStatusOkAction: HttpStatusOkDescription,
     HttpRequestWithBodyAction: HttpRequestWithBodyDescription,
     VariableAction: VariableDescription,
+    Varction: VarDescription,
+    StsAssumeRoleWithWebIdentityAction: StsAssumeRoleWithWebIdentityDescription
 }

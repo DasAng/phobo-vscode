@@ -30,6 +30,8 @@ import {
     CognitoDeleteUserDescription, 
     CognitoDeleteUserPoolDescription,
     CognitoDeleteUsersWhenFinishedDescription,
+    CognitoGetIdDescription,
+    CognitoGetOpenIdTokenDescription,
     CognitoInitiateAuthDescription,
     CognitoSetUserPasswordDescription,
     CognitoUserLoginDescription,
@@ -44,11 +46,14 @@ import {
     JmesPathMatchDescription,
     JmesPathSelectDescription,
     MatchResultDescription,
+    RepeatForEachDescription,
     RepeatUntilDescription,
     S3ListObjectsDescription,
     SFNDescribeFunctionDescription,
     SFNListFunctionsDescription,
     SSMGetParameterDescription,
+    StsAssumeRoleWithWebIdentityDescription,
+    VarDescription,
     VariableDescription
 } from '../docstrings/actionDocInfo';
 import { createCompletionItem } from './completionItemHelper';
@@ -73,6 +78,8 @@ export default class ActionCompletionProvider {
                         createCompletionItem('delete cognito users when finished', 'delete cognito', CognitoDeleteUsersWhenFinishedDescription),
                         createCompletionItem('aws cognito initiate auth', 'aws cognito', CognitoInitiateAuthDescription,'aws cognito initiate auth: authflow=USER_PASSWORD_AUTH clientid=`plceholder`'),
                         createCompletionItem('aws cognito user login', 'aws cognito', CognitoUserLoginDescription, 'aws cognito user login: clientid=`placeholder` username=`placeholder` password=`placeholder`'),
+                        createCompletionItem('aws cognito get id', 'aws cognito', CognitoGetIdDescription, 'aws cognito get id: identitypoolid=`@identitypoolid` accountid=`@accouuntid` login=`@login` idtoken=`@idtoken`'),
+                        createCompletionItem('aws cognito get openid token', 'aws cognito', CognitoGetOpenIdTokenDescription, 'aws cognito get openid token: identityid=`@identityid` login=`@login` idtoken=`@idtoken`'),
                         createCompletionItem('aws ssm get parameter', 'aws ssm', SSMGetParameterDescription, 'aws ssm get parameter placeholder'),
                         createCompletionItem('aws s3 list objects', 'aws s3', S3ListObjectsDescription, 'aws s3 list objects: bucket=placeholder'),
                         createCompletionItem('aws dynamodb sql query', 'aws dynamodb', DDBSqlQueryDescription, 'aws dynamodb sql query\n"""\nselect * from placeholder\n"""'),
@@ -113,6 +120,7 @@ export default class ActionCompletionProvider {
                         createCompletionItem('export', 'environment export', EnvironmentExportDescription, 'export @name=@value'),
                         createCompletionItem('get environment variable', 'get environment variable', EnvironmentGetDescription, 'get environment variable @name'),
                         createCompletionItem('repeat until', 'repeat until', RepeatUntilDescription, 'repeat until interval=1000 count=1\n"""\naction=@action\ncondition=@condition\n"""'),
+                        createCompletionItem('repeat for each', 'repeat for each', RepeatForEachDescription, 'repeat for each items=`@items`\n"""\naction=@action\n"""'),
                         createCompletionItem('match result', 'match result', MatchResultDescription, 'match result equal @value'),
                         createCompletionItem('http get', 'http get', HttpRequestDescription, 'http get `@url`'),
                         createCompletionItem('http post', 'http post', HttpRequestDescription, 'http post `@url`'),
@@ -130,7 +138,9 @@ export default class ActionCompletionProvider {
                         createCompletionItem('http with body delete', 'http body delete', HttpRequestWithBodyDescription, 'http with body delete `@url`\n"""\n@json\n"""'),
                         createCompletionItem('http with body head', 'http body head', HttpRequestWithBodyDescription, 'http with body head `@url`\n"""\n@json\n"""'),
                         createCompletionItem('http with body options', 'http body options', HttpRequestWithBodyDescription, 'http with body options `@url`\n"""\n@json\n"""'),
-                        createCompletionItem('variable', 'variable', VariableDescription, 'variable name=`@name` value=`@value`')
+                        createCompletionItem('variable', 'variable', VariableDescription, 'variable name=`@name` value=`@value`'),
+                        createCompletionItem('variable', 'variable', VarDescription, 'var @name=@value'),
+                        createCompletionItem('aws sts assume role with web identity', 'aws sts', StsAssumeRoleWithWebIdentityDescription, 'aws sts assume role with web identity: rolearn=`@rolearn` sessionname=`@sessionname` token=`@token`')
                     ];
                 }
             });
