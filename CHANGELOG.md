@@ -37,3 +37,9 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
     - Cognito GetOpenIdToken
     - STS AssumeRoleWithWebIdentity
     - Var
+
+## [0.3.1] - 2021-05-03
+
+### Fixed
+
+- View translator command not working
