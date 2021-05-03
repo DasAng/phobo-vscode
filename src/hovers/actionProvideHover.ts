@@ -14,7 +14,7 @@ export default class ActionProvideHover {
 
         const folder = vscode.workspace.workspaceFolders?.[0];
         if (folder) {
-            const pattern = new vscode.RelativePattern(folder, '*.feature')
+            const pattern = new vscode.RelativePattern(folder, '**/*.feature')
             const provider = vscode.languages.registerHoverProvider({pattern: pattern}, {
                 provideHover(document,position,token) {
                     const line = document.lineAt(position);

@@ -43,3 +43,4 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ### Fixed
 
 - View translator command not working
+- Display tooltip for actions when hovering for feature files in all subdirectories.
