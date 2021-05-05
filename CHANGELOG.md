@@ -44,3 +44,10 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 - View translator command not working
 - Display tooltip for actions when hovering for feature files in all subdirectories.
+
+## [0.3.2] - 2021-05-05
+
+### Fixed
+
+- Error hover info not shown for feature files in subdirectories
+- Action completion suggestion not shown for feature files in subdirectories

@@ -65,7 +65,7 @@ export default class ActionCompletionProvider {
         const self = this;
         const folder = vscode.workspace.workspaceFolders?.[0];
         if (folder) {
-            const pattern = new vscode.RelativePattern(folder, '*.feature');
+            const pattern = new vscode.RelativePattern(folder, '**/*.feature');
             const provider = vscode.languages.registerCompletionItemProvider({pattern: pattern}, {
                 async provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext) {
 

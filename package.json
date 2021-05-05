@@ -2,7 +2,7 @@
 	"name": "phobo-vscode",
 	"displayName": "phobo-vscode",
 	"description": "Phobo vscode extension",
-	"version": "0.3.1",
+	"version": "0.3.2",
 	"engines": {
 		"vscode": "^1.54.0"
 	},
@@ -15,7 +15,7 @@
 	],
 	"repository": "https://github.com/DasAng/phobo-vscode",
 	"icon": "logo.png",
-	"main": "./out/extension.js",
+	"main": "./dist/extension.js",
 	"contributes": {
 		"languages": [
 			{
