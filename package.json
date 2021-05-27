@@ -2,7 +2,7 @@
 	"name": "phobo-vscode",
 	"displayName": "phobo-vscode",
 	"description": "Phobo vscode extension",
-	"version": "0.3.2",
+	"version": "0.3.3",
 	"engines": {
 		"vscode": "^1.54.0"
 	},
@@ -15,7 +15,7 @@
 	],
 	"repository": "https://github.com/DasAng/phobo-vscode",
 	"icon": "logo.png",
-	"main": "./dist/extension.js",
+	"main": "./out/extension.js",
 	"contributes": {
 		"languages": [
 			{
@@ -65,7 +65,7 @@
 					{
 						"type": "phobo",
 						"request": "launch",
-						"name": "Ask for file name",
+						"name": "Phobo debug",
 						"program": "${workspaceFolder}/",
 						"stopOnEntry": false
 					}
@@ -126,7 +126,7 @@
 	"scripts": {
 		"vscode:prepublish": "npm run compile_window",
 		"compile_window": "webpack --mode production && xcopy images dist\\images\\ /Y && xcopy actiondocs dist\\actiondocs\\ /Y",
-		"compile_debug": "tsc -p ./ && xcopy images out\\images\\ /Y && xcopy actiondocs out\\actiondocs\\ /Y",
+		"compile_debug_window": "tsc -p ./ && xcopy images out\\images\\ /Y && xcopy actiondocs out\\actiondocs\\ /Y",
 		"watch": "tsc -watch -p ./",
 		"pretest": "npm run compile && npm run lint",
 		"lint": "eslint src --ext ts",
@@ -155,7 +155,7 @@
 	},
 	"dependencies": {
 		"await-notify": "^1.0.1",
-		"bunbo": "^1.1.20",
+		"bunbo": "^1.1.21",
 		"lodash": "^4.17.21",
 		"vscode-debugadapter": "^1.46.0",
 		"ws": "^7.4.4"

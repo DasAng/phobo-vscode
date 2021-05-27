@@ -53,6 +53,8 @@ import {
     SFNListFunctionsDescription,
     SSMGetParameterDescription,
     StsAssumeRoleWithWebIdentityDescription,
+    StsGetAccountIdDescription,
+    StsGetCallerIdentityDescription,
     VarDescription,
     VariableDescription
 } from '../docstrings/actionDocInfo';
@@ -140,7 +142,9 @@ export default class ActionCompletionProvider {
                         createCompletionItem('http with body options', 'http body options', HttpRequestWithBodyDescription, 'http with body options `@url`\n"""\n@json\n"""'),
                         createCompletionItem('variable', 'variable', VariableDescription, 'variable name=`@name` value=`@value`'),
                         createCompletionItem('variable', 'variable', VarDescription, 'var @name=@value'),
-                        createCompletionItem('aws sts assume role with web identity', 'aws sts', StsAssumeRoleWithWebIdentityDescription, 'aws sts assume role with web identity: rolearn=`@rolearn` sessionname=`@sessionname` token=`@token`')
+                        createCompletionItem('aws sts assume role with web identity', 'aws sts', StsAssumeRoleWithWebIdentityDescription, 'aws sts assume role with web identity: rolearn=`@rolearn` sessionname=`@sessionname` token=`@token`'),
+                        createCompletionItem('aws sts get caller identity', 'aws sts', StsGetCallerIdentityDescription, 'aws sts get caller identity'),
+                        createCompletionItem('aws sts get account id', 'aws sts', StsGetAccountIdDescription, 'aws sts get account id')
                     ];
                 }
             });

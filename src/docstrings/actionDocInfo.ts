@@ -58,6 +58,8 @@ export const HttpRequestWithBodyDescription = fs.readFileSync(path.join(__filena
 export const VariableDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'variable.md')).toString();
 export const VarDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'var.md')).toString();
 export const StsAssumeRoleWithWebIdentityDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'sts_assume_role_with_web_identity.md')).toString();
+export const StsGetCallerIdentityDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'sts_get_caller_identity.md')).toString();
+export const StsGetAccountIdDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'sts_get_account_id.md')).toString();
 
 
 type actionDocMapperType = {
@@ -121,5 +123,7 @@ export const actionDocMapper: actionDocMapperType = {
     HttpRequestWithBodyAction: HttpRequestWithBodyDescription,
     VariableAction: VariableDescription,
     Varction: VarDescription,
-    StsAssumeRoleWithWebIdentityAction: StsAssumeRoleWithWebIdentityDescription
+    StsAssumeRoleWithWebIdentityAction: StsAssumeRoleWithWebIdentityDescription,
+    StsGetCallerIdentityAction: StsGetCallerIdentityDescription,
+    StsGetAccountIdAction: StsGetAccountIdDescription
 }
