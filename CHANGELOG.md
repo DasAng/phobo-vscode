@@ -52,10 +52,11 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - Error hover info not shown for feature files in subdirectories
 - Action completion suggestion not shown for feature files in subdirectories
 
-## [0.3.3] - 2021-05-27
+## [0.3.3] - 2021-06-09
 
 ### Added
 
 - Actions:
     - aws sts get caller identity
     - aws sts get account id
+    - page save content
