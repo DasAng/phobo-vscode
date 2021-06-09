@@ -6,7 +6,7 @@ The text to type needs to be specified in double quotes, but the double quotes w
 
 This action expects a page has been loaded and exist otherwise it will fail.
 
-- `@text`: the text value to enter
+- `@text`: the text value to enter. You can use an [Intrinsic expression](https://github.com/DasAng/phobo-release/blob/master/docs/intrinsic_expression.md) for this parameter
 - `@xpathquery`: an XPATH query string
 
 The matching is case insensitive and can appear anywhere within the sentence.
