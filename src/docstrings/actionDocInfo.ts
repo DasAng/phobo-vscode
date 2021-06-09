@@ -43,6 +43,7 @@ export const BrowserPageSetViewportDescription = fs.readFileSync(path.join(__fil
 export const BrowserPageDeleteCookieDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'browser_delete_cookie.md')).toString();
 export const BrowserPageClearLocalstorageDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'browser_clear_localstorage.md')).toString();
 export const BrowserPageSetValueDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'browser_page_setvalue.md')).toString();
+export const BrowserPageSaveContentDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'browser_page_save_content.md')).toString();
 export const EnvironmentSetDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'environment_set.md')).toString();
 export const EnvironmentExportDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'environment_export.md')).toString();
 export const EnvironmentGetDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'environment_get.md')).toString();
@@ -58,6 +59,8 @@ export const HttpRequestWithBodyDescription = fs.readFileSync(path.join(__filena
 export const VariableDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'variable.md')).toString();
 export const VarDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'var.md')).toString();
 export const StsAssumeRoleWithWebIdentityDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'sts_assume_role_with_web_identity.md')).toString();
+export const StsGetCallerIdentityDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'sts_get_caller_identity.md')).toString();
+export const StsGetAccountIdDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'sts_get_account_id.md')).toString();
 
 
 type actionDocMapperType = {
@@ -107,6 +110,7 @@ export const actionDocMapper: actionDocMapperType = {
     BrowserPageDeleteCookieAction: BrowserPageDeleteCookieDescription,
     BrowserPageClearLocalstorageAction: BrowserPageClearLocalstorageDescription,
     BrowserPageSetValueAction: BrowserPageSetValueDescription,
+    BrowserPageSaveContentAction: BrowserPageSaveContentDescription,
     EnvironmentSetAction: EnvironmentSetDescription,
     EnvironmentExportAction: EnvironmentExportDescription,
     EnvironmentGetAction: EnvironmentGetDescription,
@@ -121,5 +125,7 @@ export const actionDocMapper: actionDocMapperType = {
     HttpRequestWithBodyAction: HttpRequestWithBodyDescription,
     VariableAction: VariableDescription,
     Varction: VarDescription,
-    StsAssumeRoleWithWebIdentityAction: StsAssumeRoleWithWebIdentityDescription
+    StsAssumeRoleWithWebIdentityAction: StsAssumeRoleWithWebIdentityDescription,
+    StsGetCallerIdentityAction: StsGetCallerIdentityDescription,
+    StsGetAccountIdAction: StsGetAccountIdDescription
 }
