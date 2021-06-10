@@ -60,3 +60,14 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
     - aws sts get caller identity
     - aws sts get account id
     - page save content
+
+
+## [0.3.4] - 2021-06-10
+
+### Added
+
+- Actions:
+    - page iframe click
+    - page iframe query
+    - page iframe value query
+    - copy to clipboard
