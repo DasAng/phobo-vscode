@@ -71,3 +71,10 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
     - page iframe query
     - page iframe value query
     - copy to clipboard
+
+
+## [0.3.5] - 2021-06-10
+
+### Fixed
+
+- action information for several actions not shown correctly

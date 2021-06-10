@@ -2,7 +2,7 @@
 	"name": "phobo-vscode",
 	"displayName": "phobo-vscode",
 	"description": "Phobo vscode extension",
-	"version": "0.3.4",
+	"version": "0.3.5",
 	"engines": {
 		"vscode": "^1.54.0"
 	},
@@ -155,7 +155,7 @@
 	},
 	"dependencies": {
 		"await-notify": "^1.0.1",
-		"bunbo": "^1.1.23",
+		"bunbo": "^1.1.24",
 		"lodash": "^4.17.21",
 		"vscode-debugadapter": "^1.46.0",
 		"ws": "^7.4.4"
