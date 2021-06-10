@@ -44,6 +44,9 @@ export const BrowserPageDeleteCookieDescription = fs.readFileSync(path.join(__fi
 export const BrowserPageClearLocalstorageDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'browser_clear_localstorage.md')).toString();
 export const BrowserPageSetValueDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'browser_page_setvalue.md')).toString();
 export const BrowserPageSaveContentDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'browser_page_save_content.md')).toString();
+export const BrowserPageClickIframeDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'browser_page_iframe_click.md')).toString();
+export const BrowserPageQueryIframeDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'browser_page_iframe_query.md')).toString();
+export const BrowserPageQueryValueIframeDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'browser_page_iframe_value_query.md')).toString();
 export const EnvironmentSetDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'environment_set.md')).toString();
 export const EnvironmentExportDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'environment_export.md')).toString();
 export const EnvironmentGetDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'environment_get.md')).toString();
@@ -61,6 +64,7 @@ export const VarDescription = fs.readFileSync(path.join(__filename, '..', '..', 
 export const StsAssumeRoleWithWebIdentityDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'sts_assume_role_with_web_identity.md')).toString();
 export const StsGetCallerIdentityDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'sts_get_caller_identity.md')).toString();
 export const StsGetAccountIdDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'sts_get_account_id.md')).toString();
+export const CopyToClipboardDescription = fs.readFileSync(path.join(__filename, '..', '..', 'actiondocs', 'copy_to_clipboard.md')).toString();
 
 
 type actionDocMapperType = {
@@ -111,6 +115,9 @@ export const actionDocMapper: actionDocMapperType = {
     BrowserPageClearLocalstorageAction: BrowserPageClearLocalstorageDescription,
     BrowserPageSetValueAction: BrowserPageSetValueDescription,
     BrowserPageSaveContentAction: BrowserPageSaveContentDescription,
+    BrowserPageClickIframeAction: BrowserPageClickIframeDescription,
+    BrowserPageQueryIframeAction: BrowserPageQueryIframeDescription,
+    BrowserPageQueryValueIframeAction: BrowserPageQueryValueIframeDescription,
     EnvironmentSetAction: EnvironmentSetDescription,
     EnvironmentExportAction: EnvironmentExportDescription,
     EnvironmentGetAction: EnvironmentGetDescription,
@@ -127,5 +134,6 @@ export const actionDocMapper: actionDocMapperType = {
     Varction: VarDescription,
     StsAssumeRoleWithWebIdentityAction: StsAssumeRoleWithWebIdentityDescription,
     StsGetCallerIdentityAction: StsGetCallerIdentityDescription,
-    StsGetAccountIdAction: StsGetAccountIdDescription
+    StsGetAccountIdAction: StsGetAccountIdDescription,
+    CopyToClipboardAction: CopyToClipboardDescription
 }

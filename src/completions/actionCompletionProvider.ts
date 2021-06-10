@@ -13,9 +13,12 @@ import {
     BrowserNavigateToDescription,
     BrowserPageClearLocalstorageDescription,
     BrowserPageClickDescription,
+    BrowserPageClickIframeDescription,
     BrowserPageDeleteCookieDescription,
     BrowserPageElementVisibleDescription,
     BrowserPageQueryDescription,
+    BrowserPageQueryIframeDescription,
+    BrowserPageQueryValueIframeDescription,
     BrowserPageReloadDescription,
     BrowserPageSaveContentDescription,
     BrowserPageSelectDropdownDescription,
@@ -36,6 +39,7 @@ import {
     CognitoInitiateAuthDescription,
     CognitoSetUserPasswordDescription,
     CognitoUserLoginDescription,
+    CopyToClipboardDescription,
     DDBSqlQueryDescription,
     EnvironmentExportDescription,
     EnvironmentGetDescription,
@@ -120,6 +124,9 @@ export default class ActionCompletionProvider {
                         createCompletionItem('page clear localstorage', 'page localstorage', BrowserPageClearLocalstorageDescription, 'page clear localstorage'),
                         createCompletionItem('page set value', 'page value', BrowserPageSetValueDescription, 'page set value "@text" @xpathquery'),
                         createCompletionItem('page save content', 'page save content', BrowserPageSaveContentDescription, 'page save content @filePath'),
+                        createCompletionItem('page iframe click', 'page iframe click', BrowserPageClickIframeDescription, 'page iframe=`@cssquery` click @xpathquery'),
+                        createCompletionItem('page iframe query', 'page iframe query', BrowserPageQueryIframeDescription, 'page iframe=`@cssquery` query @xpathquery'),
+                        createCompletionItem('page iframe value query', 'page iframe value query', BrowserPageQueryValueIframeDescription, 'page iframe=`@cssquery` value query @xpathquery'),
                         createCompletionItem('set environment variable', 'set environment variable', EnvironmentSetDescription, 'set environment variable: name=`@name` value=`@value`'),
                         createCompletionItem('export', 'environment export', EnvironmentExportDescription, 'export @name=@value'),
                         createCompletionItem('get environment variable', 'get environment variable', EnvironmentGetDescription, 'get environment variable @name'),
@@ -146,7 +153,8 @@ export default class ActionCompletionProvider {
                         createCompletionItem('variable', 'variable', VarDescription, 'var @name=@value'),
                         createCompletionItem('aws sts assume role with web identity', 'aws sts', StsAssumeRoleWithWebIdentityDescription, 'aws sts assume role with web identity: rolearn=`@rolearn` sessionname=`@sessionname` token=`@token`'),
                         createCompletionItem('aws sts get caller identity', 'aws sts', StsGetCallerIdentityDescription, 'aws sts get caller identity'),
-                        createCompletionItem('aws sts get account id', 'aws sts', StsGetAccountIdDescription, 'aws sts get account id')
+                        createCompletionItem('aws sts get account id', 'aws sts', StsGetAccountIdDescription, 'aws sts get account id'),
+                        createCompletionItem('copy to clipboard', 'copy to clipboard', CopyToClipboardDescription, 'copy to clipboard value=`@value`')
                     ];
                 }
             });
